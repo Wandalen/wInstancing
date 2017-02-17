@@ -1,5 +1,10 @@
 # wInstancing
 
 Instancing mixin. Add instances/objects tracking functionality to class.
-_ _ _ _ _ _
+
+### Try out
+```
+npm install
+node sample/Base.s
+```
 
