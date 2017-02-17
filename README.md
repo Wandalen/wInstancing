@@ -7,3 +7,4 @@ Instancing mixin in JavaScript. Add instances/objects tracking functionality to 
 npm install
 node sample/Base.s
 ```
+
