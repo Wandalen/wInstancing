@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "wTools": "",
-    "wProto": ""
+    "wProto": "",
+    "wCopyable": ""
   },
   "devDependencies": {
     "wTesting": ""

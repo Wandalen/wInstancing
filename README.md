@@ -1,4 +1,4 @@
-# wCopyable
+# wInstancing
 
-Copyable mixin. Makes any class able to be copied/cloned.
+Instancing mixin. Add instances/objects tracking functionality to class.
 _ _ _ _ _ _
