@@ -1,6 +1,6 @@
 {
   "name": "winstancing",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Instancing mixin in JavaScript. Add instances/objects tracking functionality to class.",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "license": "MIT",
