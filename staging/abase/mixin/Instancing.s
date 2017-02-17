@@ -297,9 +297,6 @@ var _nameSet = function _nameSet( name )
   var self = this;
   var nameWas = self[ symbolForName ];
 
-  // if( self instanceof wGhiRangeSlider )
-  // debugger;
-
   if( self.usingUniqueNames )
   {
     _.assert( self.instancesMap );
@@ -316,6 +313,7 @@ var _nameSet = function _nameSet( name )
   {
     if( self.usingUniqueNames )
     {
+      _.assert( self.instancesMap[ name ] === undefined,self.Self.name,'has already an instance with name',name );
       self.instancesMap[ name ] = self;
     }
     else
@@ -327,8 +325,6 @@ var _nameSet = function _nameSet( name )
 
   self[ symbolForName ] = name;
 
-  // if( name )
-  // debugger;
 }
 
 // --
@@ -348,8 +344,6 @@ var Functor =
 var Statics =
 {
 
-  // '_firstInstanceGet' : _firstInstanceGet,
-
   eachInstance : eachInstance,
   instanceByName : instanceByName,
   instancesByFilter : instancesByFilter,
@@ -363,9 +357,9 @@ var Statics =
 var Supplement =
 {
 
-  '_firstInstanceGet' : _firstInstanceGet,
-  '_instanceIndexGet' : _instanceIndexGet,
-  '_nameSet' : _nameSet,
+  _firstInstanceGet : _firstInstanceGet,
+  _instanceIndexGet : _instanceIndexGet,
+  _nameSet : _nameSet,
 
   eachInstance : eachInstance,
   instanceByName : instanceByName,
