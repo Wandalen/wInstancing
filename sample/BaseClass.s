@@ -4,8 +4,9 @@
 
 if( typeof module !== 'undefined' )
 {
-  require( 'wCopyable' );
-  require( 'wInstancing' );
+  var _ = require( 'wTools' )
+  _.include( 'wCopyable' );
+  _.include( 'wInstancing' );
 }
 
 // --
