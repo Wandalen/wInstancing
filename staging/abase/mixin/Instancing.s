@@ -52,7 +52,7 @@ if( typeof module !== 'undefined' )
 
  */
 
-var mixin = function mixin( constructor )
+function mixin( constructor )
 {
 
   var dst = constructor.prototype;
@@ -200,7 +200,7 @@ function finit( original )
  * @memberof wInstancing#
  */
 
-var eachInstance = function eachInstance( onEach )
+function eachInstance( onEach )
 {
   var self = this;
 
@@ -218,7 +218,7 @@ var eachInstance = function eachInstance( onEach )
 
 //
 
-var instanceByName = function instanceByName( name )
+function instanceByName( name )
 {
   var self = this;
 
@@ -245,7 +245,7 @@ var instanceByName = function instanceByName( name )
 }
 //
 
-var instancesByFilter = function instancesByFilter( filter )
+function instancesByFilter( filter )
 {
   var self = this;
 
@@ -292,7 +292,7 @@ function _instanceIndexGet()
  * @memberof wInstancing#
  */
 
-var _nameSet = function _nameSet( name )
+function _nameSet( name )
 {
   var self = this;
   var nameWas = self[ symbolForName ];
@@ -313,7 +313,13 @@ var _nameSet = function _nameSet( name )
   {
     if( self.usingUniqueNames )
     {
-      _.assert( self.instancesMap[ name ] === undefined,self.Self.name,'has already an instance with name',name );
+      if( Config.debug )
+      if( self.instancesMap[ name ] )
+      throw _.err
+      (
+        self.Self.name,'has already an instance with name "' + name + '"',
+        ( self.instancesMap[ name ].sourceFilePath ? ( '\nat ' + self.instancesMap[ name ].sourceFilePath ) : '' )
+      );
       self.instancesMap[ name ] = self;
     }
     else
