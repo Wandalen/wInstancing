@@ -8,7 +8,6 @@ var _hasOwnProperty = Object.hasOwnProperty;
 if( typeof module !== 'undefined' )
 {
 
-  if( typeof wBase === 'undefined' )
   try
   {
     require( '../../abase/wTools.s' );
@@ -27,8 +26,8 @@ if( typeof module !== 'undefined' )
 /**
 
  * Mixin instancing into prototype of another object.
- * @param {object} dst - prototype of another object.
- * @method mixin
+ * @param {object} dstProto - prototype of another object.
+ * @method _mixin
  * @memberof wInstancing#
 
  * @example of constructor clonning source
@@ -52,22 +51,22 @@ if( typeof module !== 'undefined' )
 
  */
 
-function mixin( constructor )
+function _mixin( cls )
 {
 
-  var dst = constructor.prototype;
+  var dstProto = cls.prototype;
 
   _.assert( arguments.length === 1 );
-  _.assert( _.routineIs( constructor ) );
-  _.assert( !dst.instances );
+  _.assert( _.routineIs( cls ) );
+  _.assert( !dstProto.instances );
   _.assert( _.mapKeys( Supplement ).length === 7 );
 
   //debugger;
 
-  _.mixin
+  _.mixinApply
   ({
-    dst : dst,
-    mixin : Self,
+    dstProto : dstProto,
+    descriptor : Self,
   });
 
   var instances = [];
@@ -82,20 +81,20 @@ function mixin( constructor )
 
   /* */
 
-  _.assert( dst.usingUniqueNames !== undefined );
+  _.assert( dstProto.usingUniqueNames !== undefined );
 
-  _.constant( dst.constructor,{ usingUniqueNames : dst.usingUniqueNames } );
-  _.constant( dst,{ usingUniqueNames : dst.usingUniqueNames } );
+  _.constant( dstProto.constructor,{ usingUniqueNames : dstProto.usingUniqueNames } );
+  _.constant( dstProto,{ usingUniqueNames : dstProto.usingUniqueNames } );
 
-  _.constant( dst.constructor,{ instances : instances });
-  _.constant( dst,{ instances : instances });
+  _.constant( dstProto.constructor,{ instances : instances });
+  _.constant( dstProto,{ instances : instances });
 
-  _.constant( dst.constructor,{ instancesMap : instancesMap });
-  _.constant( dst,{ instancesMap : instancesMap });
+  _.constant( dstProto.constructor,{ instancesMap : instancesMap });
+  _.constant( dstProto,{ instancesMap : instancesMap });
 
   _.accessorReadOnly
   ({
-    object : dst.constructor,
+    object : dstProto.constructor,
     methods : Supplement,
     names :
     {
@@ -107,7 +106,7 @@ function mixin( constructor )
 
   _.accessorReadOnly
   ({
-    object : dst.constructor.prototype,
+    object : dstProto.constructor.prototype,
     methods : Supplement,
     names :
     {
@@ -118,7 +117,7 @@ function mixin( constructor )
 
   _.accessor
   ({
-    object : dst.constructor.prototype,
+    object : dstProto.constructor.prototype,
     methods : Supplement,
     names :
     {
@@ -129,7 +128,7 @@ function mixin( constructor )
 
   _.accessorForbid
   ({
-    object : dst.constructor,
+    object : dstProto.constructor,
     prime : 0,
     names : { instance : 'instance' },
   });
@@ -325,7 +324,7 @@ function _nameSet( name )
     else
     {
       self.instancesMap[ name ] = self.instancesMap[ name ] || [];
-      _.arrayAppendOnce( self.instancesMap[ name ],self );
+      _._arrayAppendOnce( self.instancesMap[ name ],self );
     }
   }
 
@@ -378,19 +377,19 @@ var Supplement =
 var Self =
 {
 
-  mixin : mixin,
-  Supplement : Supplement,
-  Functor : Functor,
+  _mixin : _mixin,
+  supplement : Supplement,
+  functor : Functor,
   name : 'wInstancing',
   nameShort : 'Instancing',
 
 }
 
-Object.setPrototypeOf( Self, Supplement );
-Object.freeze( Supplement );
+// Object.setPrototypeOf( Self, Supplement );
+// Object.freeze( Supplement );
 
-_global_[ Self.name ] = wTools[ Self.nameShort ] = Self;
-
-return Self;
+if( typeof module !== 'undefined' )
+module[ 'exports' ] = Self;
+_global_[ Self.name ] = wTools[ Self.nameShort ] = _.mixinMake( Self );
 
 })();
