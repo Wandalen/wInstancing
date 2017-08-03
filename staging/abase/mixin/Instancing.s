@@ -98,7 +98,7 @@ function _mixin( cls )
     methods : Supplement,
     names :
     {
-      firstInstance : 'firstInstance',
+      firstInstance : { readOnlyProduct : 0 },
     },
     preserveValues : 0,
     prime : 0,
@@ -110,7 +110,7 @@ function _mixin( cls )
     methods : Supplement,
     names :
     {
-      instanceIndex : 'instanceIndex',
+      instanceIndex : { readOnlyProduct : 0 },
     },
     preserveValues : 0,
   });
