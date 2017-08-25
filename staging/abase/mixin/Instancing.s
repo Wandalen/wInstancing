@@ -180,10 +180,10 @@ function finit( original )
       if( self.usingUniqueNames )
       self.instancesMap[ self.name ] = null;
       else if( self.instancesMap[ self.name ] )
-      _.__arrayRemoveOnce( self.instancesMap[ self.name ],self );
+      _.arrayRemoveOnce( self.instancesMap[ self.name ],self );
     }
 
-    _.__arrayRemoveOnce( self.instances,self );
+    _.arrayRemoveOnce( self.instances,self );
 
     if( original )
     return original.apply( self,arguments );
@@ -306,7 +306,7 @@ function _nameSet( name )
   else
   {
     if( nameWas && self.instancesMap[ nameWas ] )
-    _.__arrayRemoveOnce( self.instancesMap[ nameWas ],self );
+    _.arrayRemoveOnce( self.instancesMap[ nameWas ],self );
   }
 
   if( name )
@@ -325,7 +325,7 @@ function _nameSet( name )
     else
     {
       self.instancesMap[ name ] = self.instancesMap[ name ] || [];
-      _.__arrayAppendOnce( self.instancesMap[ name ],self );
+      _.arrayAppendOnce( self.instancesMap[ name ],self );
     }
   }
 
