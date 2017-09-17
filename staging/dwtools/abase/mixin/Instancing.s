@@ -10,7 +10,7 @@ if( typeof module !== 'undefined' )
 
   try
   {
-    require( '../../abase/wTools.s' );
+    require( '../../Base.s' );
   }
   catch( err )
   {
@@ -154,7 +154,7 @@ function init( original )
     self.instances.push( self );
     self.instancesMade[ 0 ] += 1;
 
-    return original.apply( self,arguments );
+    return original ? original.apply( self,arguments ) : undefined;
   }
 
 }
@@ -185,8 +185,7 @@ function finit( original )
 
     _.arrayRemoveOnce( self.instances,self );
 
-    if( original )
-    return original.apply( self,arguments );
+    return original ? original.apply( self,arguments ) : undefined;
   }
 
 }

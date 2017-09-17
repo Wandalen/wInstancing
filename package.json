@@ -5,10 +5,9 @@
   "description": "Instancing mixin in JavaScript. Add instances/objects tracking functionality to class.",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "license": "MIT",
-  "main": "staging/abase/mixin/Instancing.s",
+  "main": "staging/dwtools/abase/mixin/Instancing.s",
   "files": [
-    "staging/abase/mixin",
-    "staging/abase/component",
+    "staging/dwtools/abase/mixin",
     "production"
   ],
   "scripts": {
@@ -29,7 +28,8 @@
     "winstancing": ""
   },
   "devDependencies": {
-    "wTesting": ""
+    "wTesting": "",
+    "winstancing": "."
   },
   "keywords": [
     "wTools",
