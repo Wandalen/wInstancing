@@ -2,24 +2,36 @@
 
 'use strict';
 
-var _ = wTools;
-var _hasOwnProperty = Object.hasOwnProperty;
-
 if( typeof module !== 'undefined' )
 {
 
-  try
+  if( typeof _global_ === 'undefined' || !_global_.wBase )
   {
-    require( '../../Base.s' );
-  }
-  catch( err )
-  {
-    require( 'wTools' );
+    let toolsPath = '../../../../dwtools/Base.s';
+    let toolsExternal = 0;
+    try
+    {
+      require.resolve( toolsPath )/*hhh*/;
+    }
+    catch( err )
+    {
+      toolsExternal = 1;
+      require( 'wTools' );
+    }
+    if( !toolsExternal )
+    require( toolsPath )/*hhh*/;
   }
 
-  wTools.include( 'wProto' );
+  var _ = _global_.wTools;
+
+  _.include( 'wProto' );
 
 }
+
+//
+
+var _ = _global_.wTools;
+var _hasOwnProperty = Object.hasOwnProperty;
 
 //
 
@@ -58,7 +70,7 @@ function _mixin( cls )
 
   _.assert( arguments.length === 1 );
   _.assert( _.routineIs( cls ) );
-  _.assert( !dstProto.instances );
+  _.assert( !dstProto.instances,'class already has mixin',Self.name );
   _.assert( _.mapKeys( Supplement ).length === 7 );
 
   //debugger;
@@ -124,6 +136,7 @@ function _mixin( cls )
       name : 'name',
     },
     preserveValues : 0,
+    combining : 'supplement',
   });
 
   _.accessorForbid
@@ -221,8 +234,6 @@ function instanceByName( name )
 {
   var self = this;
 
-  // !!! implement classGet routine in base
-
   _.assert( _.strIs( name ) || name instanceof self.Self,'expects name or suite instance itself, but got',_.strTypeOf( name ) );
   _.assert( arguments.length === 1 );
 
@@ -234,14 +245,8 @@ function instanceByName( name )
   else
   return self.instancesMap[ name ] ? self.instancesMap[ name ][ 0 ] : undefined;
 
-  // for( var i = 0 ; i < self.instances.length ; i++ )
-  // {
-  //   var instance = self.instances[ i ];
-  //   if( instance.name === name )
-  //   return instance;
-  // }
-
 }
+
 //
 
 function instancesByFilter( filter )
@@ -294,7 +299,7 @@ function _instanceIndexGet()
 function _nameSet( name )
 {
   var self = this;
-  var nameWas = self[ symbolForName ];
+  var nameWas = self[ nameSymbol ];
 
   if( self.usingUniqueNames )
   {
@@ -317,7 +322,7 @@ function _nameSet( name )
       throw _.err
       (
         self.Self.name,'has already an instance with name "' + name + '"',
-        ( self.instancesMap[ name ].sourceFilePath ? ( '\nat ' + self.instancesMap[ name ].sourceFilePath ) : '' )
+        ( self.instancesMap[ name ].suiteFileLocation ? ( '\nat ' + self.instancesMap[ name ].suiteFileLocation ) : '' )
       );
       self.instancesMap[ name ] = self;
     }
@@ -328,7 +333,7 @@ function _nameSet( name )
     }
   }
 
-  self[ symbolForName ] = name;
+  self[ nameSymbol ] = name;
 
 }
 
@@ -336,7 +341,7 @@ function _nameSet( name )
 // proto
 // --
 
-var symbolForName = Symbol.for( 'name' );
+var nameSymbol = Symbol.for( 'name' );
 
 var Functor =
 {
@@ -386,11 +391,17 @@ var Self =
 
 }
 
-// Object.setPrototypeOf( Self, Supplement );
-// Object.freeze( Supplement );
+_global_[ Self.name ] = _[ Self.nameShort ] = _.mixinMake( Self );
+
+// --
+// export
+// --
 
 if( typeof module !== 'undefined' )
+if( _global_._UsingWtoolsPrivately_ )
+delete require.cache[ module.id ];
+
+if( typeof module !== 'undefined' && module !== null )
 module[ 'exports' ] = Self;
-_global_[ Self.name ] = wTools[ Self.nameShort ] = _.mixinMake( Self );
 
 })();
