@@ -234,7 +234,7 @@ function instanceByName( name )
 {
   var self = this;
 
-  _.assert( _.strIs( name ) || name instanceof self.Self,'expects name or suite instance itself, but got',_.strTypeOf( name ) );
+  _.assert( _.strIs( name ) || name instanceof self.Self,'expects name or suit instance itself, but got',_.strTypeOf( name ) );
   _.assert( arguments.length === 1 );
 
   if( name instanceof self.Self )
@@ -322,7 +322,7 @@ function _nameSet( name )
       throw _.err
       (
         self.Self.name,'has already an instance with name "' + name + '"',
-        ( self.instancesMap[ name ].suiteFileLocation ? ( '\nat ' + self.instancesMap[ name ].suiteFileLocation ) : '' )
+        ( self.instancesMap[ name ].suitFileLocation ? ( '\nat ' + self.instancesMap[ name ].suitFileLocation ) : '' )
       );
       self.instancesMap[ name ] = self;
     }

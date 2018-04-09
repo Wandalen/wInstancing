@@ -1,36 +1,54 @@
 {
-  "name": "winstancing",
-  "version": "0.3.13",
-  "engine": "node >= 6.0.0",
-  "description": "Instancing mixin in JavaScript. Add instances/objects tracking functionality to class.",
-  "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
-  "license": "MIT",
-  "main": "staging/dwtools/abase/mixin/Instancing.s",
-  "files": [
-    "staging/dwtools/abase/mixin",
-    "production"
-  ],
-  "scripts": {
-    "test": "wtest staging",
-    "make_doc": "./doc.sh"
+  "_from": "winstancing@",
+  "_id": "winstancing@0.3.13",
+  "_inBundle": false,
+  "_integrity": "sha512-+aUtP/9OijKNfcpm8VHyGy5CCPmnPhQgdPBuZj+EVrDLOnj2hJ5Y7ojcMsCBsAgOXpGaSuHgJBPWPTpVXGxVWg==",
+  "_location": "/winstancing/winstancing",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "winstancing@",
+    "name": "winstancing",
+    "escapedName": "winstancing",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Wandalen/wCopyable.git"
+  "_requiredBy": [
+    "#DEV:/winstancing/winstancing"
+  ],
+  "_resolved": "https://registry.npmjs.org/winstancing/-/winstancing-0.3.13.tgz",
+  "_shasum": "a5a82b3efea47ba68f01363a10a9132e04494cb8",
+  "_spec": "winstancing@",
+  "_where": "/pro/web/Port/package/wInstancing",
+  "author": {
+    "name": "Kostiantyn Wandalen",
+    "email": "wtory.net@domainsbyproxy.com"
   },
   "bugs": {
     "url": "https://github.com/Wandalen/wCopyable/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
-    "wTools": "",
-    "wProto": "",
     "wCopyable": "",
+    "wProto": "",
+    "wTools": "",
     "winstancing": ""
   },
+  "deprecated": false,
+  "description": "Instancing mixin in JavaScript. Add instances/objects tracking functionality to class.",
   "devDependencies": {
     "wTesting": "",
     "winstancing": "."
   },
+  "engine": "node >= 6.0.0",
+  "files": [
+    "staging/dwtools/abase/mixin",
+    "production"
+  ],
+  "gitHead": "79e2bfdac1dd7e638ffcead8f1994e9ef1ab73d2",
+  "homepage": "https://github.com/Wandalen/wCopyable#readme",
   "keywords": [
     "wTools",
     "wInstancing",
@@ -40,5 +58,17 @@
     "track objects",
     "list of all instances",
     "list of all objects"
-  ]
+  ],
+  "license": "MIT",
+  "main": "staging/dwtools/abase/mixin/Instancing.s",
+  "name": "winstancing",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wandalen/wCopyable.git"
+  },
+  "scripts": {
+    "make_doc": "./doc.sh",
+    "test": "wtest staging"
+  },
+  "version": "0.3.13"
 }
