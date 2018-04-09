@@ -1,8 +1,8 @@
 {
   "_from": "winstancing@",
-  "_id": "winstancing@0.3.13",
+  "_id": "winstancing@0.3.14",
   "_inBundle": false,
-  "_integrity": "sha512-+aUtP/9OijKNfcpm8VHyGy5CCPmnPhQgdPBuZj+EVrDLOnj2hJ5Y7ojcMsCBsAgOXpGaSuHgJBPWPTpVXGxVWg==",
+  "_integrity": "sha512-xKglmcWCB+g5UAAmDTLHo+u99Yq9QIaMCZvYti7SEJjM8jNLoAtZ1SV7X4AjIFGuGDNm65yyJncz7VAjjufxYw==",
   "_location": "/winstancing/winstancing",
   "_phantomChildren": {},
   "_requested": {
@@ -18,10 +18,10 @@
   "_requiredBy": [
     "#DEV:/winstancing/winstancing"
   ],
-  "_resolved": "https://registry.npmjs.org/winstancing/-/winstancing-0.3.13.tgz",
-  "_shasum": "a5a82b3efea47ba68f01363a10a9132e04494cb8",
+  "_resolved": "https://registry.npmjs.org/winstancing/-/winstancing-0.3.14.tgz",
+  "_shasum": "73eb2d906283efdf57f58709348ed60ff8f102b4",
   "_spec": "winstancing@",
-  "_where": "/pro/web/Port/package/wInstancing",
+  "_where": "c:\\pro\\web\\Port\\package\\wInstancing",
   "author": {
     "name": "Kostiantyn Wandalen",
     "email": "wtory.net@domainsbyproxy.com"
