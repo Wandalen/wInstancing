@@ -1,8 +1,8 @@
 {
   "_from": "winstancing@",
-  "_id": "winstancing@0.3.17",
+  "_id": "winstancing@0.3.19",
   "_inBundle": false,
-  "_integrity": "sha512-4vjVh4OYXbXBT/oV+Cg8Ctxg6pSYRJJdU1PIYFHPUJkoz6suBOvPzyRX3xghGCWZ8TpGOufhD26S59pZ06AwRQ==",
+  "_integrity": "sha512-d5ruOHjTN/I60/R9zolHLQTxL/LiKVtzLUKOdiNb4vf1zjv2U0uzJrRs8buGUAHY8DLxZ8uc+922hnsntvMKvQ==",
   "_location": "/winstancing/winstancing",
   "_phantomChildren": {},
   "_requested": {
@@ -18,8 +18,8 @@
   "_requiredBy": [
     "#DEV:/winstancing/winstancing"
   ],
-  "_resolved": "https://registry.npmjs.org/winstancing/-/winstancing-0.3.17.tgz",
-  "_shasum": "814cd615849300f9ec5b18b26755ce85eed95e6a",
+  "_resolved": "https://registry.npmjs.org/winstancing/-/winstancing-0.3.19.tgz",
+  "_shasum": "76531846047a09532529e6b3457665884c9658fd",
   "_spec": "winstancing@",
   "_where": "C:\\pro\\web\\Port\\package\\wInstancing",
   "author": {
