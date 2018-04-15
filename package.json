@@ -1,6 +1,6 @@
 {
   "name": "wInstancing",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "engine": "node >= 6.0.0",
   "description": "Instancing mixin. Add instances/objects tracking functionality to class.",
   "license": "MIT",
