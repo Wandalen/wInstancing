@@ -1,5 +1,5 @@
 {
-  "name": "wInstancing",
+  "name": "winstancing",
   "version": "0.4.4",
   "engine": "node >= 6.0.0",
   "description": "Instancing mixin. Add instances/objects tracking functionality to class.",
@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "wTesting": "",
-    "wInstancing": "."
+    "winstancing": "."
   },
   "keywords": [
     "wTools",
