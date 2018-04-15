@@ -70,5 +70,5 @@
     "make_doc": "./doc.sh",
     "test": "wtest staging"
   },
-  "version": "0.3.19"
+  "version": "0.3.20"
 }
