@@ -167,7 +167,7 @@ function init( original )
     var self = this;
 
     self.instances.push( self );
-    self.instancesMade[ 0 ] += 1;
+    self.instancesCounter[ 0 ] += 1;
 
     return original ? original.apply( self,arguments ) : undefined;
   }
@@ -363,7 +363,7 @@ var Statics =
   instances : null,
   instancesMap : null,
   usingUniqueNames : 0,
-  instancesMade : [ 0 ],
+  instancesCounter : [ 0 ],
 
 }
 
