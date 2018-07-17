@@ -70,7 +70,7 @@ function _mixin( cls )
 
   var dstProto = cls.prototype;
 
-  _.assert( arguments.length === 1 );
+  _.assert( arguments.length === 1, 'expects single argument' );
   _.assert( _.routineIs( cls ) );
   _.assert( !dstProto.instances,'class already has mixin',Self.name );
   _.assert( _.mapKeys( Supplement ).length === 7 );
@@ -237,7 +237,7 @@ function instanceByName( name )
   var self = this;
 
   _.assert( _.strIs( name ) || name instanceof self.Self,'expects name or suit instance itself, but got',_.strTypeOf( name ) );
-  _.assert( arguments.length === 1 );
+  _.assert( arguments.length === 1, 'expects single argument' );
 
   if( name instanceof self.Self )
   return name;
@@ -255,7 +255,7 @@ function instancesByFilter( filter )
 {
   var self = this;
 
-  _.assert( arguments.length === 1 );
+  _.assert( arguments.length === 1, 'expects single argument' );
 
   var result = _.entityFilter( self.instances, filter );
 
@@ -324,7 +324,7 @@ function _nameSet( name )
       throw _.err
       (
         self.Self.name,'has already an instance with name "' + name + '"',
-        ( self.instancesMap[ name ].suitFileLocation ? ( '\nat ' + self.instancesMap[ name ].suitFileLocation ) : '' )
+        ( self.instancesMap[ name ].suiteFileLocation ? ( '\nat ' + self.instancesMap[ name ].suiteFileLocation ) : '' )
       );
       self.instancesMap[ name ] = self;
     }
@@ -340,7 +340,7 @@ function _nameSet( name )
 }
 
 // --
-// proto
+// define class
 // --
 
 var nameSymbol = Symbol.for( 'name' );
