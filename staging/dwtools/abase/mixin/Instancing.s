@@ -44,7 +44,7 @@ var _hasOwnProperty = Object.hasOwnProperty;
  * @method _mixin
  * @memberof wInstancing#
 
- * @example of constructor clonning source
+ * @example of constructor cloning source
   var Self = function ClassName( o )
   {
     if( !( this instanceof Self ) )
