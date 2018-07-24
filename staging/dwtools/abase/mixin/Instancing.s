@@ -153,7 +153,7 @@ function _mixin( cls )
 //
 
 /**
- * Functor to produce init.
+ * Functors to produce init.
  * @param { routine } original - original method.
  * @method init
  * @memberof wInstancing#
@@ -177,7 +177,7 @@ function init( original )
 //
 
 /**
- * Functor to produce finit.
+ * Functors to produce finit.
  * @param { routine } original - original method.
  * @method finit
  * @memberof wInstancing#
@@ -345,7 +345,7 @@ function _nameSet( name )
 
 var nameSymbol = Symbol.for( 'name' );
 
-var Functor =
+var Functors =
 {
 
   init : init,
@@ -387,7 +387,7 @@ var Self =
 
   _mixin : _mixin,
   supplement : Supplement,
-  functor : Functor,
+  functors : Functors,
   name : 'wInstancing',
   nameShort : 'Instancing',
 
