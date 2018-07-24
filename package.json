@@ -1,6 +1,6 @@
 {
   "name": "winstancing",
-  "version": "0.4.14",
+  "version": "0.4.15",
   "engine": "node >= 6.0.0",
   "description": "Instancing mixin. Add instances/objects tracking functionality to class.",
   "license": "MIT",
