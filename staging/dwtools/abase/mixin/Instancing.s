@@ -40,8 +40,8 @@ var _hasOwnProperty = Object.hasOwnProperty;
 /**
 
  * Mixin instancing into prototype of another object.
- * @param {object} dstProto - prototype of another object.
- * @method _mixin
+ * @param {object} dstPrototype - prototype of another object.
+ * @method onMixin
  * @memberof wInstancing#
 
  * @example of constructor cloning source
@@ -65,50 +65,50 @@ var _hasOwnProperty = Object.hasOwnProperty;
 
  */
 
-function _mixin( cls )
+function onMixin( dstClass )
 {
 
-  var dstProto = cls.prototype;
+  var dstPrototype = dstClass.prototype;
 
-  _.assert( arguments.length === 1, 'expects single argument' );
-  _.assert( _.routineIs( cls ) );
-  _.assert( !dstProto.instances,'class already has mixin',Self.name );
+  _.assert( arguments.length === 2, 'expects exactly two arguments' );
+  _.assert( _.routineIs( dstClass ) );
+  _.assert( !dstPrototype.instances,'class already has mixin',Self.name );
   _.assert( _.mapKeys( Supplement ).length === 7 );
 
-  //debugger;
+  _.mixinApply( this, dstPrototype );
 
-  _.mixinApply
-  ({
-    dstProto : dstProto,
-    descriptor : Self,
-  });
-
-  var instances = [];
-  var instancesMap = Object.create( null );
+  // _.mixinApply
+  // ({
+  //   dstPrototype : dstPrototype,
+  //   descriptor : Self,
+  // });
+  //
+  // var instances = [];
+  // var instancesMap = Object.create( null );
 
   _.accessorForbid
   ({
-    object : instancesMap,
+    object : dstPrototype.constructor.instancesMap,
     prime : 0,
     names : { null : 'null', undefined : 'undefined' },
   });
 
   /* */
 
-  _.assert( dstProto.usingUniqueNames !== undefined );
+  _.assert( dstPrototype.usingUniqueNames !== undefined );
 
-  _.constant( dstProto.constructor,{ usingUniqueNames : dstProto.usingUniqueNames } );
-  _.constant( dstProto,{ usingUniqueNames : dstProto.usingUniqueNames } );
-
-  _.constant( dstProto.constructor,{ instances : instances });
-  _.constant( dstProto,{ instances : instances });
-
-  _.constant( dstProto.constructor,{ instancesMap : instancesMap });
-  _.constant( dstProto,{ instancesMap : instancesMap });
+  // _.constant( dstPrototype.constructor,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
+  // _.constant( dstPrototype,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
+  //
+  // _.constant( dstPrototype.constructor,{ instances : instances });
+  // _.constant( dstPrototype,{ instances : instances });
+  //
+  // _.constant( dstPrototype.constructor,{ instancesMap : instancesMap });
+  // _.constant( dstPrototype,{ instancesMap : instancesMap });
 
   _.accessorReadOnly
   ({
-    object : dstProto.constructor,
+    object : [ dstPrototype.constructor, dstPrototype ],
     methods : Supplement,
     names :
     {
@@ -120,7 +120,7 @@ function _mixin( cls )
 
   _.accessorReadOnly
   ({
-    object : dstProto.constructor.prototype,
+    object : dstPrototype.constructor.prototype,
     methods : Supplement,
     names :
     {
@@ -131,7 +131,7 @@ function _mixin( cls )
 
   _.accessor
   ({
-    object : dstProto.constructor.prototype,
+    object : dstPrototype.constructor.prototype,
     methods : Supplement,
     names :
     {
@@ -143,10 +143,15 @@ function _mixin( cls )
 
   _.accessorForbid
   ({
-    object : dstProto.constructor,
+    object : dstPrototype.constructor,
     prime : 0,
     names : { instance : 'instance' },
   });
+
+  _.assert( _.mapIs( dstPrototype.instancesMap ) );
+  _.assert( dstPrototype.instancesMap === dstPrototype.constructor.instancesMap );
+  _.assert( _.arrayIs( dstPrototype.instances ) );
+  _.assert( dstPrototype.instances === dstPrototype.constructor.instances );
 
 }
 
@@ -360,10 +365,12 @@ var Statics =
   instanceByName : instanceByName,
   instancesByFilter : instancesByFilter,
 
-  instances : null,
-  instancesMap : null,
-  usingUniqueNames : 0,
-  instancesCounter : [ 0 ],
+  instances : _.define.withOptions({ value : [], readOnly : 1, shallowCloning : 1 }),
+  instancesMap : _.define.withOptions({ value : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
+  usingUniqueNames : _.define.withOptions({ value : 0, readOnly : 1 }),
+  instancesCounter : _.define.withOptions({ value : [ 0 ], readOnly : 1 }),
+
+  // firstInstance : null,
 
 }
 
@@ -385,15 +392,15 @@ var Supplement =
 var Self =
 {
 
-  _mixin : _mixin,
+  onMixin : onMixin,
   supplement : Supplement,
   functors : Functors,
   name : 'wInstancing',
-  nameShort : 'Instancing',
+  shortName : 'Instancing',
 
 }
 
-_global_[ Self.name ] = _[ Self.nameShort ] = _.mixinMake( Self );
+_global_[ Self.name ] = _[ Self.shortName ] = _.mixinMake( Self );
 
 // --
 // export
