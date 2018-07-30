@@ -33,7 +33,7 @@ if( typeof module !== 'undefined' )
 
 var _global = _global_;
 var _ = _global_.wTools;
-var _hasOwnProperty = Object.hasOwnProperty;
+var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 //
 
@@ -67,13 +67,14 @@ var _hasOwnProperty = Object.hasOwnProperty;
 
 function onMixin( dstClass )
 {
+  /* xxx : clean it */
 
   var dstPrototype = dstClass.prototype;
 
   _.assert( arguments.length === 2, 'expects exactly two arguments' );
   _.assert( _.routineIs( dstClass ) );
   _.assert( !dstPrototype.instances,'class already has mixin',Self.name );
-  _.assert( _.mapKeys( Supplement ).length === 7 );
+  _.assert( _.mapKeys( Supplement ).length === 8 );
 
   _.mixinApply( this, dstPrototype );
 
@@ -93,9 +94,9 @@ function onMixin( dstClass )
     names : { null : 'null', undefined : 'undefined' },
   });
 
-  /* */
+  _.assert( _.mapKeys( Supplement ).length === 8 );
 
-  _.assert( dstPrototype.usingUniqueNames !== undefined );
+  /* */
 
   // _.constant( dstPrototype.constructor,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
   // _.constant( dstPrototype,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
@@ -118,16 +119,21 @@ function onMixin( dstClass )
     prime : 0,
   });
 
+  // _.assert( _.mapKeys( Supplement ).length === 8 );
+  // debugger;
   _.accessorReadOnly
   ({
     object : dstPrototype.constructor.prototype,
     methods : Supplement,
     names :
     {
-      instanceIndex : { readOnlyProduct : 0 },
+      instanceIndex : { readOnly : 1, readOnlyProduct : 0 },
     },
     preserveValues : 0,
+    combining : 'supplement',
   });
+  // _.assert( _.mapKeys( Supplement ).length === 8 );
+  // debugger;
 
   _.accessor
   ({
@@ -152,6 +158,7 @@ function onMixin( dstClass )
   _.assert( dstPrototype.instancesMap === dstPrototype.constructor.instancesMap );
   _.assert( _.arrayIs( dstPrototype.instances ) );
   _.assert( dstPrototype.instances === dstPrototype.constructor.instances );
+  _.assert( _.mapKeys( Supplement ).length === 8 );
 
 }
 
@@ -344,6 +351,14 @@ function _nameSet( name )
 
 }
 
+//
+
+function _nameGet()
+{
+  var self = this;
+  return self[ nameSymbol ];
+}
+
 // --
 // define class
 // --
@@ -380,6 +395,7 @@ var Supplement =
   _firstInstanceGet : _firstInstanceGet,
   _instanceIndexGet : _instanceIndexGet,
   _nameSet : _nameSet,
+  _nameGet : _nameGet,
 
   eachInstance : eachInstance,
   instanceByName : instanceByName,
