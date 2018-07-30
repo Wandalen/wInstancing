@@ -65,7 +65,7 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
  */
 
-function onMixin( dstClass )
+function onMixin( mixinDescriptor, dstClass )
 {
   /* xxx : clean it */
 
