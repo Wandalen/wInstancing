@@ -2,7 +2,6 @@
 
 'use strict';
 
-
 if( typeof module !== 'undefined' )
 {
 
@@ -317,7 +316,7 @@ function _nameSet( name )
 
   if( self.usingUniqueNames )
   {
-    _.assert( self.instancesMap );
+    _.assert( _.mapIs( self.instancesMap ) );
     if( nameWas )
     delete self.instancesMap[ nameWas ];
   }
@@ -380,10 +379,10 @@ var Statics =
   instanceByName : instanceByName,
   instancesByFilter : instancesByFilter,
 
-  instances : _.define.withOptions({ value : [], readOnly : 1, shallowCloning : 1 }),
-  instancesMap : _.define.withOptions({ value : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
-  usingUniqueNames : _.define.withOptions({ value : 0, readOnly : 1 }),
-  instancesCounter : _.define.withOptions({ value : [ 0 ], readOnly : 1 }),
+  instances : _.define.contained({ value : [], readOnly : 1, shallowCloning : 1 }),
+  instancesMap : _.define.contained({ value : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
+  usingUniqueNames : _.define.contained({ value : 0, readOnly : 1 }),
+  instancesCounter : _.define.contained({ value : [ 0 ], readOnly : 1 }),
 
   // firstInstance : null,
 
