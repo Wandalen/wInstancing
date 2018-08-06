@@ -2,13 +2,13 @@
   "name": "winstancing",
   "version": "0.4.19",
   "engine": "node >= 6.0.0",
-  "description": "Instancing mixin. Add instances/objects tracking functionality to class.",
+  "description": "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
   "license": "MIT",
   "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
   "contributors": [
     {
       "name": "Kostiantyn Wandalen",
-      "email": "wanalen@willbe.so>"
+      "email": "wanalen@willbe.so"
     },
     {
       "name": "Volodymyr M.",
