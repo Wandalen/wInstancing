@@ -423,7 +423,7 @@ var Self =
 
 }
 
-_global_[ Self.name ] = _[ Self.shortName ] = _.mixinMake( Self );
+_global_[ Self.name ] = _[ Self.shortName ] = _.mixinDelcare( Self );
 
 // --
 // export
