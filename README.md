@@ -7,3 +7,4 @@ Mixin adds instances accounting functionality to a class. Instancing makes possi
 npm install
 node sample/Base.s
 ```
+
