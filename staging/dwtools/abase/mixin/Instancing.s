@@ -362,7 +362,7 @@ function _nameGet()
 }
 
 // --
-// define class
+// declare
 // --
 
 var nameSymbol = Symbol.for( 'name' );
