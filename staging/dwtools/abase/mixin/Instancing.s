@@ -89,7 +89,7 @@ function onMixin( mixinDescriptor, dstClass )
   // var instances = [];
   // var instancesMap = Object.create( null );
 
-  _.accessorForbid
+  _.accessor.forbid
   ({
     object : dstPrototype.constructor.instancesMap,
     prime : 0,
@@ -100,16 +100,16 @@ function onMixin( mixinDescriptor, dstClass )
 
   /* */
 
-  // _.constant( dstPrototype.constructor,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
-  // _.constant( dstPrototype,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
+  // _.accessor.constant( dstPrototype.constructor,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
+  // _.accessor.constant( dstPrototype,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
   //
-  // _.constant( dstPrototype.constructor,{ instances : instances });
-  // _.constant( dstPrototype,{ instances : instances });
+  // _.accessor.constant( dstPrototype.constructor,{ instances : instances });
+  // _.accessor.constant( dstPrototype,{ instances : instances });
   //
-  // _.constant( dstPrototype.constructor,{ instancesMap : instancesMap });
-  // _.constant( dstPrototype,{ instancesMap : instancesMap });
+  // _.accessor.constant( dstPrototype.constructor,{ instancesMap : instancesMap });
+  // _.accessor.constant( dstPrototype,{ instancesMap : instancesMap });
 
-  _.accessorReadOnly
+  _.accessor.readOnly
   ({
     object : [ dstPrototype.constructor, dstPrototype ],
     methods : Supplement,
@@ -123,7 +123,7 @@ function onMixin( mixinDescriptor, dstClass )
 
   // _.assert( _.mapKeys( Supplement ).length === 8 );
   // debugger;
-  _.accessorReadOnly
+  _.accessor.readOnly
   ({
     object : dstPrototype.constructor.prototype,
     methods : Supplement,
@@ -137,7 +137,7 @@ function onMixin( mixinDescriptor, dstClass )
   // _.assert( _.mapKeys( Supplement ).length === 8 );
   // debugger;
 
-  _.accessor
+  _.accessor.declare
   ({
     object : dstPrototype.constructor.prototype,
     methods : Supplement,
@@ -149,7 +149,7 @@ function onMixin( mixinDescriptor, dstClass )
     combining : 'supplement',
   });
 
-  _.accessorForbid
+  _.accessor.forbid
   ({
     object : dstPrototype.constructor,
     prime : 0,
