@@ -73,7 +73,7 @@ function onMixin( mixinDescriptor, dstClass )
 
   var dstPrototype = dstClass.prototype;
 
-  _.assert( arguments.length === 2, 'expects exactly two arguments' );
+  _.assert( arguments.length === 2, 'Expects exactly two arguments' );
   _.assert( _.routineIs( dstClass ) );
   _.assert( !dstPrototype.instances,'class already has mixin',Self.name );
   _.assert( _.mapKeys( Supplement ).length === 8 );
