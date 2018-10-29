@@ -250,8 +250,8 @@ function instanceByName( name )
 {
   var self = this;
 
-  _.assert( _.strIs( name ) || name instanceof self.Self,'expects name or suit instance itself, but got',_.strTypeOf( name ) );
-  _.assert( arguments.length === 1, 'expects single argument' );
+  _.assert( _.strIs( name ) || name instanceof self.Self,'Expects name or suit instance itself, but got',_.strTypeOf( name ) );
+  _.assert( arguments.length === 1, 'Expects single argument' );
 
   if( name instanceof self.Self )
   return name;
@@ -269,7 +269,7 @@ function instancesByFilter( filter )
 {
   var self = this;
 
-  _.assert( arguments.length === 1, 'expects single argument' );
+  _.assert( arguments.length === 1, 'Expects single argument' );
 
   var result = _.entityFilter( self.instances, filter );
 
