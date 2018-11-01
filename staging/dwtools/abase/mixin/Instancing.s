@@ -44,29 +44,6 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 //
 
-/**
-
- * Mixin instancing into prototype of another object.
- * @param {object} dstPrototype - prototype of another object.
- * @method onMixin
- * @memberof wInstancing#
-
- * @example of constructor cloning source
-  var Self = function ClassName( o )
-  {
-    if( !( this instanceof Self ) )
-    return new( _.routineJoin( Self, Self, arguments ) );
-    return Self.prototype.init.apply( this,arguments );
-  }
-
-  * @example of constructor returning source if source is instance
-  var Self = function ClassName( o )
-  {
-  return _.instanceConstructor( Self, this, arguments );
-}
-
- */
-
 function onMixin( mixinDescriptor, dstClass )
 {
   /* xxx : clean it */
