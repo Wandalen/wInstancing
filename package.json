@@ -15,15 +15,15 @@
       "email": "volodymyr.migdal@gmail.com"
     }
   ],
-  "main": "staging/dwtools/abase/mixin/Instancing.s",
+  "main": "proto/dwtools/abase/mixin/Instancing.s",
   "files": [
-    "staging/dwtools/abase/mixin/Instancing.s",
-    "staging/dwtools/abase/layer3",
+    "proto/dwtools/abase/mixin/Instancing.s",
+    "proto/dwtools/abase/layer3",
     "production"
   ],
   "scripts": {
     "test": "wtest staging",
-    "make_doc": "./doc.sh"
+    "docgen": "wdocgen proto"
   },
   "repository": {
     "type": "git",
