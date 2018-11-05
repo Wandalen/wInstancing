@@ -19,7 +19,7 @@
   "files": [
     "proto/dwtools/abase/mixin/Instancing.s",
     "proto/dwtools/abase/layer3",
-    "production"
+    "proto/dwtools/Tools.s", "production"
   ],
   "scripts": {
     "test": "wtest staging",
