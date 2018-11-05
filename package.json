@@ -1,6 +1,6 @@
 {
   "name": "winstancing",
-  "version": "0.4.34",
+  "version": "0.4.35",
   "engine": "node >= 6.0.0",
   "description": "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
   "license": "MIT",
@@ -19,7 +19,8 @@
   "files": [
     "proto/dwtools/abase/mixin/Instancing.s",
     "proto/dwtools/abase/layer3",
-    "proto/dwtools/Tools.s", "production"
+    "proto/dwtools/Tools.s",
+    "production"
   ],
   "scripts": {
     "test": "wtest staging",
