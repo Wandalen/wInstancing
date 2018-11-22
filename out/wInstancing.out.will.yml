@@ -6,7 +6,7 @@ about:
     possible to iterate instances of the specific class, optionally create names
     map or class name map in case of a complicated hierarchical structure. Use
     Instancing to don't repeat yourself. Refactoring required.
-  version: 0.4.38
+  version: 0.4.40
   enabled: 1
   interpreters:
     - nodejs >= 6.0.0
@@ -86,7 +86,7 @@ path:
 submodule: {}
 reflector:
   reflect.proto.0:
-    reflectMap:
+    filePath:
       ./proto: ./out.release
     srcFilter:
       maskAll:
@@ -110,7 +110,7 @@ reflector:
     inherit:
       - predefined.*
   reflect.proto.1:
-    reflectMap:
+    filePath:
       ./proto: ./out.debug
     srcFilter:
       maskAll:
@@ -156,15 +156,14 @@ reflector:
     inherit:
       - predefined.*
   exported.0:
-    reflectMap:
-      ./proto: true
+    filePath: ./proto
     srcFilter:
       prefixPath: .
     dstFilter:
       prefixPath: .
   exportedFiles.0:
     recursive: 0
-    reflectMap:
+    filePath:
       ./dwtools/Tools.s: true
       ./dwtools/abase/.DS_Store: true
       ./dwtools/abase/mixin/.DS_Store: true
@@ -277,7 +276,7 @@ build:
       - 'step::export.proto'
 exported:
   proto.export:
-    version: 0.4.38
+    version: 0.4.40
     criterion:
       default: 1
       debug: 1
