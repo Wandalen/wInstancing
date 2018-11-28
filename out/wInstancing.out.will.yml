@@ -170,8 +170,8 @@ reflector:
       ./dwtools/abase/mixin/Instancing.s: true
       ./dwtools/abase/mixin.test/.DS_Store: true
     srcFilter:
-      basePath: ./proto
-      prefixPath: .
+      basePath: .
+      prefixPath: proto
     dstFilter:
       basePath: .
       prefixPath: .
