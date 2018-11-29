@@ -15,9 +15,9 @@
       "email": "volodymyr.migdal@gmail.com"
     }
   ],
-  "main": "proto/dwtools/abase/mixin/Instancing.s",
+  "main": "proto/dwtools/abase/l7_mixin/Instancing.s",
   "files": [
-    "proto/dwtools/abase/mixin/Instancing.s",
+    "proto/dwtools/abase/l7_mixin/Instancing.s",
     "proto/dwtools/abase/layer3",
     "proto/dwtools/Tools.s",
     "production"
