@@ -54,12 +54,9 @@ path:
       - ./dwtools
       - ./dwtools/Tools.s
       - ./dwtools/abase
-      - ./dwtools/abase/.DS_Store
-      - ./dwtools/abase/mixin
-      - ./dwtools/abase/mixin/.DS_Store
-      - ./dwtools/abase/mixin/Instancing.s
-      - ./dwtools/abase/mixin.test
-      - ./dwtools/abase/mixin.test/.DS_Store
+      - ./dwtools/abase/l7_mixin
+      - ./dwtools/abase/l7_mixin/Instancing.s
+      - ./dwtools/abase/l7_mixin.test
       - ./dwtools/amid
       - ./dwtools/atop
     criterion:
@@ -72,10 +69,7 @@ path:
   exportedTerminals.0:
     path:
       - ./dwtools/Tools.s
-      - ./dwtools/abase/.DS_Store
-      - ./dwtools/abase/mixin/.DS_Store
-      - ./dwtools/abase/mixin/Instancing.s
-      - ./dwtools/abase/mixin.test/.DS_Store
+      - ./dwtools/abase/l7_mixin/Instancing.s
     criterion:
       default: 1
       debug: 1
@@ -165,10 +159,7 @@ reflector:
     recursive: 0
     filePath:
       ./dwtools/Tools.s: true
-      ./dwtools/abase/.DS_Store: true
-      ./dwtools/abase/mixin/.DS_Store: true
-      ./dwtools/abase/mixin/Instancing.s: true
-      ./dwtools/abase/mixin.test/.DS_Store: true
+      ./dwtools/abase/l7_mixin/Instancing.s: true
     srcFilter:
       basePath: .
       prefixPath: proto
@@ -291,10 +282,7 @@ exported:
     exportedTerminalsPath:
       path:
         - ./dwtools/Tools.s
-        - ./dwtools/abase/.DS_Store
-        - ./dwtools/abase/mixin/.DS_Store
-        - ./dwtools/abase/mixin/Instancing.s
-        - ./dwtools/abase/mixin.test/.DS_Store
+        - ./dwtools/abase/l7_mixin/Instancing.s
       criterion:
         default: 1
         debug: 1
