@@ -39,8 +39,7 @@
     "wcloner": ""
   },
   "devDependencies": {
-    "wTesting": "",
-    "winstancing": "."
+    "wTesting": ""
   },
   "keywords": [
     "wTools",
