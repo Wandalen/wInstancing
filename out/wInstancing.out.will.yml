@@ -57,6 +57,9 @@ path:
       - ./dwtools/abase
       - ./dwtools/abase/l7_mixin
       - ./dwtools/abase/l7_mixin/Instancing.s
+      - ./dwtools/abase/l7_mixin.test
+      - ./dwtools/amid
+      - ./dwtools/atop
     criterion:
       default: 1
       debug: 1
