@@ -6,7 +6,7 @@ about:
     possible to iterate instances of the specific class, optionally create names
     map or class name map in case of a complicated hierarchical structure. Use
     Instancing to don't repeat yourself. Refactoring required.
-  version: 0.4.45
+  version: 0.4.51
   enabled: 1
   interpreters:
     - nodejs >= 6.0.0
@@ -230,7 +230,7 @@ step:
       export: 'path::proto'
       tar: 0
     inherit:
-      - export
+      - predefined.export
 build:
   debug.raw:
     criterion:
@@ -279,7 +279,7 @@ build:
       - 'step::export.proto'
 exported:
   proto.export:
-    version: 0.4.45
+    version: 0.4.51
     criterion:
       default: 1
       debug: 1
