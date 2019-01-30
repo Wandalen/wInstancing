@@ -3,7 +3,7 @@ about :
 
   name : "wInstancing"
   description : "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required."
-  version : "0.4.45"
+  version : "0.4.51"
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
@@ -26,7 +26,7 @@ path :
 step :
 
   export.proto :
-    inherit : export
+    inherit : predefined.export
     export : path::proto
     tar : 0
     criterion :
