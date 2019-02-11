@@ -1,6 +1,6 @@
 {
   "name": "winstancing",
-  "version": "0.4.55",
+  "version": "0.4.56",
   "engine": "node >= 6.0.0",
   "description": "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
   "license": "MIT",
