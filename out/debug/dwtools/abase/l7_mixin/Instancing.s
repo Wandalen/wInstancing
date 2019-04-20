@@ -128,10 +128,16 @@ function onMixin( mixinDescriptor, dstClass )
 //
 
 /**
+ * @classdesc Mixin adds instances accounting functionality to a class.
+ * @class wInstancing
+ * @memberof module:Tools/mixin/Instancing
+ */
+
+/**
  * Functors to produce init.
  * @param { routine } original - original method.
  * @method init
- * @memberof wInstancing#
+ * @memberof module:Tools/mixin/Instancing.wInstancing#
  */
 
 function init( original )
@@ -155,7 +161,7 @@ function init( original )
  * Functors to produce finit.
  * @param { routine } original - original method.
  * @method finit
- * @memberof wInstancing#
+ * @memberof module:Tools/mixin/Instancing.wInstancing#
  */
 
 function finit( original )
@@ -186,7 +192,7 @@ function finit( original )
  * Iterate through instances of this type.
  * @param {routine} onEach - on each handler.
  * @method eachInstance
- * @memberof wInstancing#
+ * @memberof module:Tools/mixin/Instancing.wInstancing#
  */
 
 function eachInstance( onEach )
@@ -242,7 +248,7 @@ function instancesByFilter( filter )
 /**
  * Get first instance.
  * @method _firstInstanceGet
- * @memberof wInstancing#
+ * @memberof module:Tools/mixin/Instancing.wInstancing#
  */
 
 function _firstInstanceGet()
@@ -256,7 +262,7 @@ function _firstInstanceGet()
 /**
  * Get index of current instance.
  * @method _instanceIndexGet
- * @memberof wInstancing#
+ * @memberof module:Tools/mixin/Instancing.wInstancing#
  */
 
 function _instanceIndexGet()
@@ -270,7 +276,7 @@ function _instanceIndexGet()
 /**
  * Set name.
  * @method _nameSet
- * @memberof wInstancing#
+ * @memberof module:Tools/mixin/Instancing.wInstancing#
  */
 
 function _nameSet( name )
