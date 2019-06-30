@@ -43,7 +43,7 @@ function onMixin( mixinDescriptor, dstClass )
 
   // _.mixinApply
   // ({
-  //   dstPrototype : dstPrototype,
+  //   /*ttt*/dstPrototype,
   //   descriptor : Self,
   // });
   //
@@ -64,11 +64,11 @@ function onMixin( mixinDescriptor, dstClass )
   // _.accessor.constant( dstPrototype.constructor,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
   // _.accessor.constant( dstPrototype,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
   //
-  // _.accessor.constant( dstPrototype.constructor,{ instances : instances });
-  // _.accessor.constant( dstPrototype,{ instances : instances });
+  // _.accessor.constant( dstPrototype.constructor,{ /*ttt*/instances });
+  // _.accessor.constant( dstPrototype,{ /*ttt*/instances });
   //
-  // _.accessor.constant( dstPrototype.constructor,{ instancesMap : instancesMap });
-  // _.accessor.constant( dstPrototype,{ instancesMap : instancesMap });
+  // _.accessor.constant( dstPrototype.constructor,{ /*ttt*/instancesMap });
+  // _.accessor.constant( dstPrototype,{ /*ttt*/instancesMap });
 
   _.accessor.readOnly
   ({
@@ -337,17 +337,17 @@ var nameSymbol = Symbol.for( 'name' );
 var Functors =
 {
 
-  init : init,
-  finit : finit,
+  /*ttt*/init,
+  /*ttt*/finit,
 
 }
 
 var Statics =
 {
 
-  eachInstance : eachInstance,
-  instanceByName : instanceByName,
-  instancesByFilter : instancesByFilter,
+  /*ttt*/eachInstance,
+  /*ttt*/instanceByName,
+  /*ttt*/instancesByFilter,
 
   instances : _.define.contained({ value : [], readOnly : 1, shallowCloning : 1 }),
   instancesMap : _.define.contained({ value : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
@@ -361,23 +361,23 @@ var Statics =
 var Supplement =
 {
 
-  _firstInstanceGet : _firstInstanceGet,
-  _instanceIndexGet : _instanceIndexGet,
-  _nameSet : _nameSet,
-  _nameGet : _nameGet,
+  /*ttt*/_firstInstanceGet,
+  /*ttt*/_instanceIndexGet,
+  /*ttt*/_nameSet,
+  /*ttt*/_nameGet,
 
-  eachInstance : eachInstance,
-  instanceByName : instanceByName,
-  instancesByFilter : instancesByFilter,
+  /*ttt*/eachInstance,
+  /*ttt*/instanceByName,
+  /*ttt*/instancesByFilter,
 
-  Statics : Statics,
+  /*ttt*/Statics,
 
 }
 
 var Self =
 {
 
-  onMixin : onMixin,
+  /*ttt*/onMixin,
   supplement : Supplement,
   functors : Functors,
   name : 'wInstancing',
