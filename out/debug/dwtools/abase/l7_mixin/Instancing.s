@@ -43,7 +43,7 @@ function onMixin( mixinDescriptor, dstClass )
 
   // _.mixinApply
   // ({
-  //   /*ttt*/dstPrototype,
+  //   dstPrototype,
   //   descriptor : Self,
   // });
   //
@@ -61,14 +61,14 @@ function onMixin( mixinDescriptor, dstClass )
 
   /* */
 
-  // _.accessor.constant( dstPrototype.constructor,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
-  // _.accessor.constant( dstPrototype,{ usingUniqueNames : dstPrototype.usingUniqueNames } );
+  // _.accessor.constant( dstPrototype.constructor,{ UsingUniqueNames : dstPrototype.UsingUniqueNames } );
+  // _.accessor.constant( dstPrototype,{ UsingUniqueNames : dstPrototype.UsingUniqueNames } );
   //
-  // _.accessor.constant( dstPrototype.constructor,{ /*ttt*/instances });
-  // _.accessor.constant( dstPrototype,{ /*ttt*/instances });
+  // _.accessor.constant( dstPrototype.constructor,{ instances });
+  // _.accessor.constant( dstPrototype,{ instances });
   //
-  // _.accessor.constant( dstPrototype.constructor,{ /*ttt*/instancesMap });
-  // _.accessor.constant( dstPrototype,{ /*ttt*/instancesMap });
+  // _.accessor.constant( dstPrototype.constructor,{ instancesMap });
+  // _.accessor.constant( dstPrototype,{ instancesMap });
 
   _.accessor.readOnly
   ({
@@ -173,7 +173,7 @@ function finit( original )
 
     if( self.name )
     {
-      if( self.usingUniqueNames )
+      if( self.UsingUniqueNames )
       self.instancesMap[ self.name ] = null;
       else if( self.instancesMap[ self.name ] )
       _.arrayRemoveElementOnce( self.instancesMap[ self.name ],self );
@@ -223,7 +223,7 @@ function instanceByName( name )
   if( name instanceof self.Self )
   return name;
 
-  if( self.usingUniqueNames )
+  if( self.UsingUniqueNames )
   return self.instancesMap[ name ];
   else
   return self.instancesMap[ name ] ? self.instancesMap[ name ][ 0 ] : undefined;
@@ -284,7 +284,7 @@ function _nameSet( name )
   var self = this;
   var nameWas = self[ nameSymbol ];
 
-  if( self.usingUniqueNames )
+  if( self.UsingUniqueNames )
   {
     _.assert( _.mapIs( self.instancesMap ) );
     if( nameWas )
@@ -298,7 +298,7 @@ function _nameSet( name )
 
   if( name )
   {
-    if( self.usingUniqueNames )
+    if( self.UsingUniqueNames )
     {
       if( Config.debug )
       if( self.instancesMap[ name ] )
@@ -337,21 +337,21 @@ var nameSymbol = Symbol.for( 'name' );
 var Functors =
 {
 
-  /*ttt*/init,
-  /*ttt*/finit,
+  init,
+  finit,
 
 }
 
 var Statics =
 {
 
-  /*ttt*/eachInstance,
-  /*ttt*/instanceByName,
-  /*ttt*/instancesByFilter,
+  eachInstance,
+  instanceByName,
+  instancesByFilter,
 
   instances : _.define.contained({ value : [], readOnly : 1, shallowCloning : 1 }),
   instancesMap : _.define.contained({ value : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
-  usingUniqueNames : _.define.contained({ value : 0, readOnly : 1 }),
+  UsingUniqueNames : _.define.contained({ value : 0, readOnly : 1 }),
   instancesCounter : _.define.contained({ value : [ 0 ], readOnly : 1 }),
 
   // firstInstance : null,
@@ -361,23 +361,23 @@ var Statics =
 var Supplement =
 {
 
-  /*ttt*/_firstInstanceGet,
-  /*ttt*/_instanceIndexGet,
-  /*ttt*/_nameSet,
-  /*ttt*/_nameGet,
+  _firstInstanceGet,
+  _instanceIndexGet,
+  _nameSet,
+  _nameGet,
 
-  /*ttt*/eachInstance,
-  /*ttt*/instanceByName,
-  /*ttt*/instancesByFilter,
+  eachInstance,
+  instanceByName,
+  instancesByFilter,
 
-  /*ttt*/Statics,
+  Statics,
 
 }
 
 var Self =
 {
 
-  /*ttt*/onMixin,
+  onMixin,
   supplement : Supplement,
   functors : Functors,
   name : 'wInstancing',
@@ -390,10 +390,6 @@ _global_[ Self.name ] = _[ Self.shortName ] = _.mixinDelcare( Self );
 // --
 // export
 // --
-
-if( typeof module !== 'undefined' )
-if( _global_.WTOOLS_PRIVATE )
-{ /* delete require.cache[ module.id ]; */ }
 
 if( typeof module !== 'undefined' && module !== null )
 module[ 'exports' ] = Self;
