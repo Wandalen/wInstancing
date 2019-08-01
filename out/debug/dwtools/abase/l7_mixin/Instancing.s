@@ -28,7 +28,7 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 //
 
-function onMixin( mixinDescriptor, dstClass )
+function onMixinApply( mixinDescriptor, dstClass )
 {
   /* xxx : clean it */
 
@@ -41,34 +41,16 @@ function onMixin( mixinDescriptor, dstClass )
 
   _.mixinApply( this, dstPrototype );
 
-  // _.mixinApply
+  // _.accessor.forbid
   // ({
-  //   dstPrototype,
-  //   descriptor : Self,
+  //   object : dstPrototype.constructor.InstancesMap,
+  //   prime : 0,
+  //   names : { null : 'null', undefined : 'undefined' },
   // });
-  //
-  // var instances = [];
-  // var instancesMap = Object.create( null );
-
-  _.accessor.forbid
-  ({
-    object : dstPrototype.constructor.instancesMap,
-    prime : 0,
-    names : { null : 'null', undefined : 'undefined' },
-  });
 
   _.assert( _.mapKeys( Supplement ).length === 8 );
 
   /* */
-
-  // _.accessor.constant( dstPrototype.constructor,{ UsingUniqueNames : dstPrototype.UsingUniqueNames } );
-  // _.accessor.constant( dstPrototype,{ UsingUniqueNames : dstPrototype.UsingUniqueNames } );
-  //
-  // _.accessor.constant( dstPrototype.constructor,{ instances });
-  // _.accessor.constant( dstPrototype,{ instances });
-  //
-  // _.accessor.constant( dstPrototype.constructor,{ instancesMap });
-  // _.accessor.constant( dstPrototype,{ instancesMap });
 
   _.accessor.readOnly
   ({
@@ -82,8 +64,6 @@ function onMixin( mixinDescriptor, dstClass )
     prime : 0,
   });
 
-  // _.assert( _.mapKeys( Supplement ).length === 8 );
-  // debugger;
   _.accessor.readOnly
   ({
     object : dstPrototype.constructor.prototype,
@@ -95,8 +75,6 @@ function onMixin( mixinDescriptor, dstClass )
     preserveValues : 0,
     combining : 'supplement',
   });
-  // _.assert( _.mapKeys( Supplement ).length === 8 );
-  // debugger;
 
   _.accessor.declare
   ({
@@ -117,8 +95,8 @@ function onMixin( mixinDescriptor, dstClass )
     names : { instance : 'instance' },
   });
 
-  _.assert( _.mapIs( dstPrototype.instancesMap ) );
-  _.assert( dstPrototype.instancesMap === dstPrototype.constructor.instancesMap );
+  _.assert( _.mapIs( dstPrototype.InstancesMap ) );
+  _.assert( dstPrototype.InstancesMap === dstPrototype.constructor.InstancesMap );
   _.assert( _.arrayIs( dstPrototype.instances ) );
   _.assert( dstPrototype.instances === dstPrototype.constructor.instances );
   _.assert( _.mapKeys( Supplement ).length === 8 );
@@ -148,7 +126,7 @@ function init( original )
     var self = this;
 
     self.instances.push( self );
-    self.instancesCounter[ 0 ] += 1;
+    self.InstancesCounter[ 0 ] += 1;
 
     return original ? original.apply( self,arguments ) : undefined;
   }
@@ -174,9 +152,9 @@ function finit( original )
     if( self.name )
     {
       if( self.UsingUniqueNames )
-      self.instancesMap[ self.name ] = null;
-      else if( self.instancesMap[ self.name ] )
-      _.arrayRemoveElementOnce( self.instancesMap[ self.name ],self );
+      self.InstancesMap[ self.name ] = null;
+      else if( self.InstancesMap[ self.name ] )
+      _.arrayRemoveElementOnce( self.InstancesMap[ self.name ],self );
     }
 
     _.arrayRemoveElementOnce( self.instances,self );
@@ -224,9 +202,9 @@ function instanceByName( name )
   return name;
 
   if( self.UsingUniqueNames )
-  return self.instancesMap[ name ];
+  return self.InstancesMap[ name ];
   else
-  return self.instancesMap[ name ] ? self.instancesMap[ name ][ 0 ] : undefined;
+  return self.InstancesMap[ name ] ? self.InstancesMap[ name ][ 0 ] : undefined;
 
 }
 
@@ -286,14 +264,14 @@ function _nameSet( name )
 
   if( self.UsingUniqueNames )
   {
-    _.assert( _.mapIs( self.instancesMap ) );
+    _.assert( _.mapIs( self.InstancesMap ) );
     if( nameWas )
-    delete self.instancesMap[ nameWas ];
+    delete self.InstancesMap[ nameWas ];
   }
   else
   {
-    if( nameWas && self.instancesMap[ nameWas ] )
-    _.arrayRemoveElementOnce( self.instancesMap[ nameWas ],self );
+    if( nameWas && self.InstancesMap[ nameWas ] )
+    _.arrayRemoveElementOnce( self.InstancesMap[ nameWas ], self );
   }
 
   if( name )
@@ -301,18 +279,18 @@ function _nameSet( name )
     if( self.UsingUniqueNames )
     {
       if( Config.debug )
-      if( self.instancesMap[ name ] )
+      if( self.InstancesMap[ name ] )
       throw _.err
       (
         self.Self.name,'has already an instance with name "' + name + '"',
-        ( self.instancesMap[ name ].suiteFileLocation ? ( '\nat ' + self.instancesMap[ name ].suiteFileLocation ) : '' )
+        ( self.InstancesMap[ name ].suiteFileLocation ? ( '\nat ' + self.InstancesMap[ name ].suiteFileLocation ) : '' )
       );
-      self.instancesMap[ name ] = self;
+      self.InstancesMap[ name ] = self;
     }
     else
     {
-      self.instancesMap[ name ] = self.instancesMap[ name ] || [];
-      _.arrayAppendOnce( self.instancesMap[ name ],self );
+      self.InstancesMap[ name ] = self.InstancesMap[ name ] || [];
+      _.arrayAppendOnce( self.InstancesMap[ name ], self );
     }
   }
 
@@ -349,10 +327,10 @@ var Statics =
   instanceByName,
   instancesByFilter,
 
-  instances : _.define.contained({ value : [], readOnly : 1, shallowCloning : 1 }),
-  instancesMap : _.define.contained({ value : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
-  UsingUniqueNames : _.define.contained({ value : 0, readOnly : 1 }),
-  instancesCounter : _.define.contained({ value : [ 0 ], readOnly : 1 }),
+  instances : _.define.contained({ ini : [], readOnly : 1, shallowCloning : 1 }),
+  InstancesMap : _.define.contained({ ini : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
+  UsingUniqueNames : _.define.contained({ ini : 0, readOnly : 1 }),
+  InstancesCounter : _.define.contained({ ini : [ 0 ], readOnly : 1 }),
 
   // firstInstance : null,
 
@@ -377,7 +355,7 @@ var Supplement =
 var Self =
 {
 
-  onMixin,
+  onMixinApply,
   supplement : Supplement,
   functors : Functors,
   name : 'wInstancing',
