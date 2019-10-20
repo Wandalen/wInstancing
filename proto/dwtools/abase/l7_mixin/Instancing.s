@@ -332,8 +332,6 @@ var Statics =
   UsingUniqueNames : _.define.contained({ ini : 0, readOnly : 1 }),
   InstancesCounter : _.define.contained({ ini : [ 0 ], readOnly : 1 }),
 
-  // firstInstance : null,
-
 }
 
 var Supplement =
