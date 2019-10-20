@@ -26,13 +26,16 @@ about :
 path :
 
   repository : git+https:///github.com/Wandalen/wInstancing.git
+  remotes :
+   - git+https:///github.com/Wandalen/wInstancing.git
+   - npm:///winstancing
   bugtracker : https:///github.com/Wandalen/wInstancing/issues
 
 step :
 
   proto.export :
     inherit : module.export
-    export : path::proto
+    export : path::export
     tar : 0
     criterion :
       content : 'proto'
