@@ -2,16 +2,20 @@ format: outwillfile-2.0
 root:
   - wInstancing.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wInstancing.out.will.yml: &ref_0
+    hash: 53f9a2aca6134814c31c615b6c3f64e4
+    size: 38955
+  ../.ex.will.yml: &ref_1
     hash: 7adfea91c61b2ccc6910b805b992dd66
     size: 2026
-  ../.im.will.yml: &ref_1
-    hash: 2ad1ef3876bcd5262d5cff14c0ba8d88
-    size: 5010
+  ../.im.will.yml: &ref_2
+    hash: dc138f6aef587f57c7c9ecc6f1139d63
+    size: 5084
 module:
   wInstancing.out:
     about:
       name: wInstancing
+      org: noorg
       description: >-
         Mixin adds instances accounting functionality to a class. Instancing
         makes possible to iterate instances of the specific class, optionally
@@ -20,21 +24,21 @@ module:
         required.
       enabled: 1
       version: 0.5.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 8.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - wTools
         - wInstancing
         - instances
       license: MIT
       author: Kostiantyn Wandalen <wanalen@willbe.so>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@willbe.so>
         - Volodymyr M. <volodymyr.migdal@gmail.com>
       npm.name: winstancing
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -65,9 +69,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wInstancing.git'
       origins:
@@ -77,15 +78,15 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wInstancing/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: .
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - ../package-lock.json
+          - ../package.json
+          - ../node_modules
       proto:
         path: ../proto
       export:
@@ -150,11 +151,13 @@ module:
         path: '{path::out.*=}/source/Index.s'
       exported.dir.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path: ../proto
       exported.files.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path:
@@ -340,6 +343,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
       exported.files.proto.export:
@@ -352,6 +356,7 @@ module:
         recursive: 0
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
     step:
@@ -705,6 +710,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          reflector: 'reflector::exported.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          reflector: 'reflector::exported.files.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -793,11 +816,13 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wInstancing.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wInstancing
+      org: noorg
       description: >-
         Mixin adds instances accounting functionality to a class. Instancing
         makes possible to iterate instances of the specific class, optionally
@@ -806,13 +831,23 @@ module:
         required.
       enabled: 1
       version: 0.5.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 8.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - wTools
+        - wInstancing
+        - instances
       license: MIT
       author: Kostiantyn Wandalen <wanalen@willbe.so>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@willbe.so>
+        - Volodymyr M. <volodymyr.migdal@gmail.com>
       npm.name: winstancing
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -841,9 +876,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wInstancing.git'
       origins:
@@ -853,21 +885,21 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wInstancing/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: out
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - package-lock.json
+          - package.json
+          - node_modules
       proto:
-        path: ./proto
+        path: proto
       export:
         path: '{path::proto}/**'
       doc:
-        path: ./doc
+        path: doc
       out.raw.debug:
         criterion:
           debug: debug
@@ -1493,5 +1525,8 @@ module:
         hash: 7adfea91c61b2ccc6910b805b992dd66
         size: 2026
       ../.im.will.yml:
-        hash: 2ad1ef3876bcd5262d5cff14c0ba8d88
-        size: 5010
+        hash: dc138f6aef587f57c7c9ecc6f1139d63
+        size: 5084
+      wInstancing.out.will.yml:
+        hash: 53f9a2aca6134814c31c615b6c3f64e4
+        size: 38955
