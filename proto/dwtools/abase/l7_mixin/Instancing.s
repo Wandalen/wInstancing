@@ -108,14 +108,17 @@ function onMixinApply( mixinDescriptor, dstClass )
 /**
  * @classdesc Mixin adds instances accounting functionality to a class.
  * @class wInstancing
- * @memberof module:Tools/mixin/Instancing
+ * @namespace Tools
+ * @module Tools/mixin/Instancing
  */
 
 /**
  * Functors to produce init.
  * @param { routine } original - original method.
  * @method init
- * @memberof module:Tools/mixin/Instancing.wInstancing#
+ * @module Tools/mixin/Instancing
+ * @namespace Tools
+ * @class wInstancing
  */
 
 function init( original )
@@ -139,7 +142,9 @@ function init( original )
  * Functors to produce finit.
  * @param { routine } original - original method.
  * @method finit
- * @memberof module:Tools/mixin/Instancing.wInstancing#
+ * @module Tools/mixin/Instancing
+ * @namespace Tools
+ * @class wInstancing
  */
 
 function finit( original )
@@ -170,7 +175,9 @@ function finit( original )
  * Iterate through instances of this type.
  * @param {routine} onEach - on each handler.
  * @method eachInstance
- * @memberof module:Tools/mixin/Instancing.wInstancing#
+ * @module Tools/mixin/Instancing
+ * @namespace Tools
+ * @class wInstancing
  */
 
 function eachInstance( onEach )
@@ -226,7 +233,9 @@ function instancesByFilter( filter )
 /**
  * Get first instance.
  * @method _firstInstanceGet
- * @memberof module:Tools/mixin/Instancing.wInstancing#
+ * @module Tools/mixin/Instancing
+ * @namespace Tools
+ * @class wInstancing
  */
 
 function _firstInstanceGet()
@@ -240,7 +249,9 @@ function _firstInstanceGet()
 /**
  * Get index of current instance.
  * @method _instanceIndexGet
- * @memberof module:Tools/mixin/Instancing.wInstancing#
+ * @module Tools/mixin/Instancing
+ * @namespace Tools
+ * @class wInstancing
  */
 
 function _instanceIndexGet()
@@ -254,7 +265,9 @@ function _instanceIndexGet()
 /**
  * Set name.
  * @method _nameSet
- * @memberof module:Tools/mixin/Instancing.wInstancing#
+ * @module Tools/mixin/Instancing
+ * @namespace Tools
+ * @class wInstancing
  */
 
 function _nameSet( name )
