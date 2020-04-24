@@ -37,18 +37,11 @@ function onMixinApply( mixinDescriptor, dstClass )
   _.assert( arguments.length === 2, 'Expects exactly two arguments' );
   _.assert( _.routineIs( dstClass ) );
   _.assert( !dstPrototype.instances,'class already has mixin',Self.name );
-  _.assert( _.mapKeys( Supplement ).length === 8 );
+  _.assert( _.mapKeys( Supplement ).length === 9 );
 
   _.mixinApply( this, dstPrototype );
 
-  // _.accessor.forbid
-  // ({
-  //   object : dstPrototype.constructor.InstancesMap,
-  //   prime : 0,
-  //   names : { null : 'null', undefined : 'undefined' },
-  // });
-
-  _.assert( _.mapKeys( Supplement ).length === 8 );
+  _.assert( _.mapKeys( Supplement ).length === 9 );
 
   /* */
 
@@ -58,23 +51,27 @@ function onMixinApply( mixinDescriptor, dstClass )
     methods : Supplement,
     names :
     {
-      firstInstance : { readOnlyProduct : 0 },
+      // firstInstance : { readOnlyProduct : 0 },
+      firstInstance : { setter : 0 },
     },
-    preserveValues : 0,
+    preservingValue : 0,
     prime : 0,
   });
 
+  // debugger;
   _.accessor.readOnly
   ({
     object : dstPrototype.constructor.prototype,
     methods : Supplement,
     names :
     {
-      instanceIndex : { readOnly : 1, readOnlyProduct : 0 },
+      // instanceIndex : { readOnly : 1, readOnlyProduct : 0 },
+      instanceIndex : { setter : 0 },
     },
-    preserveValues : 0,
+    preservingValue : 0,
     combining : 'supplement',
   });
+  // debugger;
 
   _.accessor.declare
   ({
@@ -84,7 +81,7 @@ function onMixinApply( mixinDescriptor, dstClass )
     {
       name : 'name',
     },
-    preserveValues : 0,
+    preservingValue : 0,
     combining : 'supplement',
   });
 
@@ -99,7 +96,7 @@ function onMixinApply( mixinDescriptor, dstClass )
   _.assert( dstPrototype.InstancesMap === dstPrototype.constructor.InstancesMap );
   _.assert( _.arrayIs( dstPrototype.instances ) );
   _.assert( dstPrototype.instances === dstPrototype.constructor.instances );
-  _.assert( _.mapKeys( Supplement ).length === 8 );
+  _.assert( _.mapKeys( Supplement ).length === 9 );
 
 }
 
@@ -313,6 +310,14 @@ function _nameSet( name )
 
 //
 
+function _namePut( name )
+{
+  var self = this;
+  self[ nameSymbol ] = name;
+}
+
+//
+
 function _nameGet()
 {
   var self = this;
@@ -353,6 +358,7 @@ var Supplement =
   _firstInstanceGet,
   _instanceIndexGet,
   _nameSet,
+  _namePut,
   _nameGet,
 
   eachInstance,
