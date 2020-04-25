@@ -52,7 +52,7 @@ function onMixinApply( mixinDescriptor, dstClass )
     names :
     {
       // firstInstance : { readOnlyProduct : 0 },
-      firstInstance : { setter : 0, put : 0 },
+      firstInstance : { set : 0, put : 0 },
     },
     preservingValue : 0,
     prime : 0,
@@ -66,7 +66,7 @@ function onMixinApply( mixinDescriptor, dstClass )
     names :
     {
       // instanceIndex : { readOnly : 1, readOnlyProduct : 0 },
-      instanceIndex : { setter : 0, put : 0 },
+      instanceIndex : { set : 0, put : 0 },
     },
     preservingValue : 0,
     combining : 'supplement',
