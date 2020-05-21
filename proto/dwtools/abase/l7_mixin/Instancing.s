@@ -386,7 +386,7 @@ _global_[ Self.name ] = _[ Self.shortName ] = _.mixinDelcare( Self );
 // export
 // --
 
-if( typeof module !== 'undefined' && module !== null )
+if( typeof module !== 'undefined' )
 module[ 'exports' ] = Self;
 
 })();
