@@ -162,6 +162,7 @@ module:
           export: 1
         path:
           - ../proto
+          - ../proto/Integration.test.s
           - ../proto/dwtools
           - ../proto/dwtools/Tools.s
           - ../proto/dwtools/abase
@@ -1510,6 +1511,4 @@ module:
       ../.im.will.yml:
         hash: dc138f6aef587f57c7c9ecc6f1139d63
         size: 5084
-      wInstancing.out.will.yml:
-        hash: a7daebb81f5eea498eca8dae4d9078ee
-        size: 38608
+      wInstancing.out.will.yml: *ref_0
