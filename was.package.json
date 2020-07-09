@@ -10,12 +10,12 @@
     { "name" : "Kostiantyn Wandalen", "email" : "wanalen@01.school" },
     { "name" : "Volodymyr M.", "email" : "volodymyr.migdal@gmail.com" }
   ],
-  "main" : "proto/dwtools/abase/l7_mixin/Instancing.s",
+  "main" : "proto/wtools/abase/l7_mixin/Instancing.s",
   "files" :
   [
-    "proto/dwtools/abase/l7_mixin/Instancing.s",
-    "proto/dwtools/abase/layer3",
-    "proto/dwtools/Tools.s",
+    "proto/wtools/abase/l7_mixin/Instancing.s",
+    "proto/wtools/abase/layer3",
+    "proto/wtools/Tools.s",
     "out"
   ],
   "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },

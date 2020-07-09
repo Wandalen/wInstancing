@@ -120,7 +120,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: ../proto/dwtools/abase/l7_mixin/Instancing.s
+        path: ../proto/wtools/abase/l7_mixin/Instancing.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -130,13 +130,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/abase/l7_mixin/Instancing.s'
+        path: '{path::out.*=1}/source/wtools/abase/l7_mixin/Instancing.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/abase/l7_mixin/Instancing.s'
+        path: '{path::out.*=1}/source/wtools/abase/l7_mixin/Instancing.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -163,14 +163,14 @@ module:
         path:
           - ../proto
           - ../proto/Integration.test.s
-          - ../proto/dwtools
-          - ../proto/dwtools/Tools.s
-          - ../proto/dwtools/abase
-          - ../proto/dwtools/abase/l7_mixin
-          - ../proto/dwtools/abase/l7_mixin/Instancing.s
-          - ../proto/dwtools/abase/l7_mixin.test
-          - ../proto/dwtools/amid
-          - ../proto/dwtools/atop
+          - ../proto/wtools
+          - ../proto/wtools/Tools.s
+          - ../proto/wtools/abase
+          - ../proto/wtools/abase/l7_mixin
+          - ../proto/wtools/abase/l7_mixin/Instancing.s
+          - ../proto/wtools/abase/l7_mixin.test
+          - ../proto/wtools/amid
+          - ../proto/wtools/atop
     submodule:
       wTools:
         path: 'npm:///wTools'
@@ -920,7 +920,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: proto/dwtools/abase/l7_mixin/Instancing.s
+        path: proto/wtools/abase/l7_mixin/Instancing.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -930,13 +930,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/abase/l7_mixin/Instancing.s'
+        path: '{path::out.*=1}/source/wtools/abase/l7_mixin/Instancing.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/abase/l7_mixin/Instancing.s'
+        path: '{path::out.*=1}/source/wtools/abase/l7_mixin/Instancing.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
