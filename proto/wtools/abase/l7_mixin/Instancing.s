@@ -96,7 +96,7 @@ function onMixinApply( mixinDescriptor, dstClass )
   _.assert( dstPrototype.InstancesMap === dstPrototype.constructor.InstancesMap );
   _.assert( _.arrayIs( dstPrototype.instances ) );
   _.assert( dstPrototype.instances === dstPrototype.constructor.instances );
-  _.assert( _.mapKeys( Supplement ).length === 9 );
+  _.assert( _.mapKeys( Supplement ).length === 11 );
 
 }
 
