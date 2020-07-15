@@ -41,8 +41,6 @@ function onMixinApply( mixinDescriptor, dstClass )
 
   /* */
 
-  debugger;
-
   _.accessor.readOnly
   ({
     object : [ dstPrototype.constructor, dstPrototype ],
@@ -56,9 +54,6 @@ function onMixinApply( mixinDescriptor, dstClass )
     prime : 0,
   });
 
-  debugger;
-
-  // debugger;
   _.accessor.readOnly
   ({
     object : dstPrototype.constructor.prototype,
@@ -71,9 +66,6 @@ function onMixinApply( mixinDescriptor, dstClass )
     preservingValue : 0,
     combining : 'supplement',
   });
-  // debugger;
-
-  debugger;
 
   _.accessor.declare
   ({
@@ -86,8 +78,6 @@ function onMixinApply( mixinDescriptor, dstClass )
     preservingValue : 0,
     combining : 'supplement',
   });
-
-  debugger;
 
   _.accessor.forbid
   ({
