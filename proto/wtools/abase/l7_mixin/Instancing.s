@@ -7,10 +7,6 @@
   @module Tools/mixin/Instancing
 */
 
-/**
- * @file Instancing.s.
- */
-
 if( typeof module !== 'undefined' )
 {
 
@@ -36,14 +32,16 @@ function onMixinApply( mixinDescriptor, dstClass )
 
   _.assert( arguments.length === 2, 'Expects exactly two arguments' );
   _.assert( _.routineIs( dstClass ) );
-  _.assert( !dstPrototype.instances,'class already has mixin',Self.name );
-  _.assert( _.mapKeys( Supplement ).length === 9 );
+  _.assert( !dstPrototype.Instances,'class already has mixin',Self.name );
+  _.assert( _.mapKeys( Supplement ).length === 10 );
 
   _.mixinApply( this, dstPrototype );
 
-  _.assert( _.mapKeys( Supplement ).length === 9 );
+  _.assert( _.mapKeys( Supplement ).length === 10 );
 
   /* */
+
+  debugger;
 
   _.accessor.readOnly
   ({
@@ -52,11 +50,13 @@ function onMixinApply( mixinDescriptor, dstClass )
     names :
     {
       // firstInstance : { readOnlyProduct : 0 },
-      firstInstance : { set : 0, put : 0 },
+      firstInstance : { set : 0, put : 0, take : 0, get : 1 },
     },
     preservingValue : 0,
     prime : 0,
   });
+
+  debugger;
 
   // debugger;
   _.accessor.readOnly
@@ -66,12 +66,14 @@ function onMixinApply( mixinDescriptor, dstClass )
     names :
     {
       // instanceIndex : { readOnly : 1, readOnlyProduct : 0 },
-      instanceIndex : { set : 0, put : 0 },
+      instanceIndex : { set : 0, put : 0, take : 0, get : 1 },
     },
     preservingValue : 0,
     combining : 'supplement',
   });
   // debugger;
+
+  debugger;
 
   _.accessor.declare
   ({
@@ -79,24 +81,26 @@ function onMixinApply( mixinDescriptor, dstClass )
     methods : Supplement,
     names :
     {
-      name : 'name',
+      name : {},
     },
     preservingValue : 0,
     combining : 'supplement',
   });
 
+  debugger;
+
   _.accessor.forbid
   ({
     object : dstPrototype.constructor,
     prime : 0,
-    names : { instance : 'instance' },
+    names : { instance : 'instance', instances : 'instances' },
   });
 
   _.assert( _.mapIs( dstPrototype.InstancesMap ) );
   _.assert( dstPrototype.InstancesMap === dstPrototype.constructor.InstancesMap );
-  _.assert( _.arrayIs( dstPrototype.instances ) );
-  _.assert( dstPrototype.instances === dstPrototype.constructor.instances );
-  _.assert( _.mapKeys( Supplement ).length === 11 );
+  _.assert( _.arrayIs( dstPrototype.Instances ) );
+  _.assert( dstPrototype.Instances === dstPrototype.constructor.Instances );
+  _.assert( _.mapKeys( Supplement ).length === 10 );
 
 }
 
@@ -125,7 +129,7 @@ function init( original )
   {
     var self = this;
 
-    self.instances.push( self );
+    self.Instances.push( self );
     self.InstancesCounter[ 0 ] += 1;
 
     return original ? original.apply( self,arguments ) : undefined;
@@ -159,7 +163,7 @@ function finit( original )
       _.arrayRemoveElementOnce( self.InstancesMap[ self.name ],self );
     }
 
-    _.arrayRemoveElementOnce( self.instances,self );
+    _.arrayRemoveElementOnce( self.Instances,self );
 
     return original ? original.apply( self,arguments ) : undefined;
   }
@@ -183,9 +187,9 @@ function eachInstance( onEach )
 
   /*if( self.Self.prototype === self )*/
 
-  for( var i = 0 ; i < self.instances.length ; i++ )
+  for( var i = 0 ; i < self.Instances.length ; i++ )
   {
-    var instance = self.instances[ i ];
+    var instance = self.Instances[ i ];
     if( instance instanceof self.Self )
     onEach.call( instance );
   }
@@ -220,7 +224,7 @@ function instancesByFilter( filter )
 
   _.assert( arguments.length === 1, 'Expects single argument' );
 
-  var result = _.entityFilter( self.instances, filter );
+  var result = _.entityFilter( self.Instances, filter );
 
   return result;
 }
@@ -238,7 +242,7 @@ function instancesByFilter( filter )
 function _firstInstanceGet()
 {
   var self = this;
-  return self.instances[ 0 ];
+  return self.Instances[ 0 ];
 }
 
 //
@@ -254,7 +258,31 @@ function _firstInstanceGet()
 function _instanceIndexGet()
 {
   var self = this;
-  return self.instances.indexOf( self );
+  return self.Instances.indexOf( self );
+}
+
+//
+
+function _nameTake()
+{
+  var self = this;
+  return self[ nameSymbol ];
+}
+
+//
+
+function _nameGet()
+{
+  var self = this;
+  return self[ nameSymbol ];
+}
+
+//
+
+function _namePut( name )
+{
+  var self = this;
+  self[ nameSymbol ] = name;
 }
 
 //
@@ -308,22 +336,6 @@ function _nameSet( name )
 
 }
 
-//
-
-function _namePut( name )
-{
-  var self = this;
-  self[ nameSymbol ] = name;
-}
-
-//
-
-function _nameGet()
-{
-  var self = this;
-  return self[ nameSymbol ];
-}
-
 // --
 // declare
 // --
@@ -345,7 +357,7 @@ var Statics =
   instanceByName,
   instancesByFilter,
 
-  instances : _.define.contained({ ini : [], readOnly : 1, shallowCloning : 1 }),
+  Instances : _.define.contained({ ini : [], readOnly : 1, shallowCloning : 1 }),
   InstancesMap : _.define.contained({ ini : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
   UsingUniqueNames : _.define.contained({ ini : 0, readOnly : 1 }),
   InstancesCounter : _.define.contained({ ini : [ 0 ], readOnly : 1 }),
@@ -357,9 +369,11 @@ var Supplement =
 
   _firstInstanceGet,
   _instanceIndexGet,
+
+  _nameTake,
+  _nameGet,
   _nameSet,
   _namePut,
-  _nameGet,
 
   eachInstance,
   instanceByName,

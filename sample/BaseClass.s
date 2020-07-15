@@ -17,12 +17,7 @@ var _ = wTools;
 var Parent = null;
 var Self = function BaseClass()
 {
-  if( !( this instanceof Self ) )
-  if( o instanceof Self )
-  return o;
-  else
-  return new( _.routineJoin( Self, Self, arguments ) );
-  return Self.prototype.init.apply( this,arguments );
+  return _.workpiece.construct( Self, this, arguments );
 }
 
 // --
@@ -35,7 +30,7 @@ function init( o )
 {
   var self = this; /* context */
 
-  _.instanceInit( self );/* extends object by fields from relationships */
+  _.workpiece.initFields( self );/* extends object by fields from relationships */
 
   Object.preventExtensions( self ); /* disables object extending */
 
@@ -59,12 +54,8 @@ var Composes =
 
 var Proto =
 {
-
   init : init,
-
-  constructor : Self,
   Composes : Composes,
-
 }
 
 /* make class */

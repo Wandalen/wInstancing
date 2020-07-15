@@ -23,6 +23,6 @@
     "url" : "https://github.com/Wandalen/wInstancing/issues"
   },
   "dependencies" : { "wTools" : "", "wProto" : "", "wcloner" : "" },
-  "devDependencies" : { "wTesting" : "" },
+  "devDependencies" : { "wTesting" : "", "winstancing" : "file:." },
   "keywords" : [ "wTools", "wInstancing", "instances" ]
 }
