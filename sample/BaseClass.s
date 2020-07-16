@@ -4,7 +4,7 @@
 
 if( typeof module !== 'undefined' )
 {
-  var _ = require( 'wTools' )
+  let _ = require( 'wTools' )
   _.include( 'wCopyable' );
   _.include( 'wInstancing' );
 }
@@ -13,9 +13,9 @@ if( typeof module !== 'undefined' )
 // constructor
 // --
 
-var _ = wTools;
-var Parent = null;
-var Self = function BaseClass()
+let _ = wTools;
+let Parent = null;
+let Self = function BaseClass()
 {
   return _.workpiece.construct( Self, this, arguments );
 }
