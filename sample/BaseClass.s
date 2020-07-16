@@ -1,10 +1,12 @@
-( function _BaseClass_s_(){
+( function _BaseClass_s_()
+{
 
 'use strict';
 
+
 if( typeof module !== 'undefined' )
 {
-  var _ = require( 'wTools' )
+  let _ = require( 'wTools' )
   _.include( 'wCopyable' );
   _.include( 'wInstancing' );
 }
@@ -13,9 +15,10 @@ if( typeof module !== 'undefined' )
 // constructor
 // --
 
-var _ = wTools;
+let _ = wTools;
 var Parent = null;
-var Self = function BaseClass()
+var Self = BaseClass;
+function BaseClass()
 {
   return _.workpiece.construct( Self, this, arguments );
 }
@@ -54,8 +57,8 @@ var Composes =
 
 var Proto =
 {
-  init : init,
-  Composes : Composes,
+  init,
+  Composes,
 }
 
 /* make class */

@@ -1,4 +1,5 @@
-( function _Instancing_s_() {
+( function _Instancing_s_()
+{
 
 'use strict';
 
@@ -32,7 +33,7 @@ function onMixinApply( mixinDescriptor, dstClass )
 
   _.assert( arguments.length === 2, 'Expects exactly two arguments' );
   _.assert( _.routineIs( dstClass ) );
-  _.assert( !dstPrototype.Instances,'class already has mixin',Self.name );
+  _.assert( !dstPrototype.Instances, 'class already has mixin', Self.name );
   _.assert( _.mapKeys( Supplement ).length === 10 );
 
   _.mixinApply( this, dstPrototype );
@@ -122,7 +123,7 @@ function init( original )
     self.Instances.push( self );
     self.InstancesCounter[ 0 ] += 1;
 
-    return original ? original.apply( self,arguments ) : undefined;
+    return original ? original.apply( self, arguments ) : undefined;
   }
 
 }
@@ -150,12 +151,12 @@ function finit( original )
       if( self.UsingUniqueNames )
       self.InstancesMap[ self.name ] = null;
       else if( self.InstancesMap[ self.name ] )
-      _.arrayRemoveElementOnce( self.InstancesMap[ self.name ],self );
+      _.arrayRemoveElementOnce( self.InstancesMap[ self.name ], self );
     }
 
-    _.arrayRemoveElementOnce( self.Instances,self );
+    _.arrayRemoveElementOnce( self.Instances, self );
 
-    return original ? original.apply( self,arguments ) : undefined;
+    return original ? original.apply( self, arguments ) : undefined;
   }
 
 }
@@ -193,7 +194,7 @@ function instanceByName( name )
 {
   var self = this;
 
-  _.assert( _.strIs( name ) || name instanceof self.Self,'Expects name or suit instance itself, but got',_.strType( name ) );
+  _.assert( _.strIs( name ) || name instanceof self.Self, 'Expects name or suit instance itself, but got', _.strType( name ) );
   _.assert( arguments.length === 1, 'Expects single argument' );
 
   if( name instanceof self.Self )
@@ -310,7 +311,7 @@ function _nameSet( name )
       if( self.InstancesMap[ name ] )
       throw _.err
       (
-        self.Self.name,'has already an instance with name "' + name + '"',
+        self.Self.name, 'has already an instance with name "' + name + '"',
         ( self.InstancesMap[ name ].suiteFileLocation ? ( '\nat ' + self.InstancesMap[ name ].suiteFileLocation ) : '' )
       );
       self.InstancesMap[ name ] = self;
