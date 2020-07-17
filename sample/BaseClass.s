@@ -16,8 +16,8 @@ if( typeof module !== 'undefined' )
 // --
 
 let _ = wTools;
-var Parent = null;
-var Self = BaseClass;
+let Parent = null;
+let Self = BaseClass;
 function BaseClass()
 {
   return _.workpiece.construct( Self, this, arguments );
