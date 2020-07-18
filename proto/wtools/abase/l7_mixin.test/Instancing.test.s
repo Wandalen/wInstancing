@@ -172,7 +172,7 @@ function severalClasses( test )
 let Self =
 {
 
-  name : 'Tools.base.InstancingMixin',
+  name : 'Tools.InstancingMixin',
   silencing : 1,
 
   tests :
