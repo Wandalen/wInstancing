@@ -1,4 +1,5 @@
-( function _Instancing_test_( ) {
+( function _Instancing_test_()
+{
 
 'use strict';
 
@@ -27,7 +28,8 @@ function basic( test )
 
   test.case = 'basic';
 
-  var Obj1 = function BaseClass()
+  var Obj1 = BaseClass;
+  function BaseClass()
   {
     return _.workpiece.construct( Obj1, this, arguments );
   }
@@ -95,12 +97,14 @@ function severalClasses( test )
 
   test.case = 'basic';
 
-  var Obj1 = function BaseClass()
+  var Obj1 = BaseClass1;
+  function BaseClass1()
   {
     return _.workpiece.construct( Obj1, this, arguments );
   }
 
-  var Obj2 = function BaseClass()
+  var Obj2 = BaseClass2;
+  function BaseClass2()
   {
     return _.workpiece.construct( Obj2, this, arguments );
   }

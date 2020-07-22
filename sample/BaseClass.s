@@ -1,6 +1,8 @@
-( function _BaseClass_s_(){
+( function _BaseClass_s_()
+{
 
 'use strict';
+
 
 if( typeof module !== 'undefined' )
 {
@@ -15,7 +17,8 @@ if( typeof module !== 'undefined' )
 
 let _ = wTools;
 let Parent = null;
-let Self = function BaseClass()
+let Self = BaseClass;
+function BaseClass()
 {
   return _.workpiece.construct( Self, this, arguments );
 }
@@ -54,8 +57,8 @@ var Composes =
 
 var Proto =
 {
-  init : init,
-  Composes : Composes,
+  init,
+  Composes,
 }
 
 /* make class */
