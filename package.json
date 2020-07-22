@@ -1,28 +1,51 @@
 {
-  "name" : "winstancing",
-  "version" : "0.4.191",
-  "engine" : "node >= 10.0.0",
-  "description" : "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
-  "license" : "MIT",
-  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
-  "contributors" :
-  [
-    { "name" : "Kostiantyn Wandalen", "email" : "wanalen@01.school" },
-    { "name" : "Volodymyr M.", "email" : "volodymyr.migdal@gmail.com" }
+  "name": "winstancing",
+  "version": "0.4.191",
+  "engine": "node >= 10.0.0",
+  "description": "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
+  "license": "MIT",
+  "author": "Kostiantyn Wandalen <wanalen@01.school>",
+  "contributors": [
+    {
+      "name": "Kostiantyn Wandalen",
+      "email": "wanalen@01.school"
+    },
+    {
+      "name": "Volodymyr M.",
+      "email": "volodymyr.migdal@gmail.com"
+    }
   ],
-  "main" : "proto/wtools/abase/l7_mixin/Instancing.s",
-  "files" : [ "proto/wtools/abase/l7_mixin/Instancing.s", "proto/wtools/abase/layer3", "proto/wtools/Tools.s", "out" ],
-  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/Wandalen/wInstancing.git"
+  "main": "proto/wtools/abase/l7_mixin/Instancing.s",
+  "files": [
+    "proto/wtools/abase/l7_mixin/Instancing.s",
+    "proto/wtools/abase/layer3",
+    "proto/wtools/Tools.s",
+    "out"
+  ],
+  "scripts": {
+    "test": "wtest .run 'proto/**' rapidity:-3",
+    "docgen": "wdocgen proto"
   },
-  "bugs" :
-  {
-    "url" : "https://github.com/Wandalen/wInstancing/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wandalen/wInstancing.git"
   },
-  "dependencies" : { "wTools" : "alpha", "wProto" : "alpha", "wcloner" : "alpha" },
-  "devDependencies" : { "eslint" : "7.1.0", "winstancing" : "file:.", "wTesting" : "alpha" },
-  "keywords" : [ "wTools", "wInstancing", "instances" ]
+  "bugs": {
+    "url": "https://github.com/Wandalen/wInstancing/issues"
+  },
+  "dependencies": {
+    "wTools": "alpha",
+    "wProto": "alpha",
+    "wcloner": "alpha"
+  },
+  "devDependencies": {
+    "eslint": "7.1.0",
+    "winstancing": "file:.",
+    "wTesting": "alpha"
+  },
+  "keywords": [
+    "wTools",
+    "wInstancing",
+    "instances"
+  ]
 }

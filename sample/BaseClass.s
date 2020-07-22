@@ -82,4 +82,6 @@ wInstancing.mixin( Self );
 
 _global_[ Self.name ] = Self;
 
+console.log( `self.finit`, _.routineIs( Self.prototype.finit ) );
+
 })();
