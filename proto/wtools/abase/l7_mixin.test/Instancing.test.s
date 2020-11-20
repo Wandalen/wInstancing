@@ -68,7 +68,7 @@ function basic( test )
   var base3 = new Obj1({ name : 'base3' });
 
   var base2Maybe = Obj1.instanceByName( 'base2' );
-  test.is( base2Maybe === base2 );
+  test.true( base2Maybe === base2 );
 
   test.identical( Obj1.Instances[ 0 ].name, 'base1' );
   test.identical( Obj1.Instances[ 1 ].name, 'base2' );
