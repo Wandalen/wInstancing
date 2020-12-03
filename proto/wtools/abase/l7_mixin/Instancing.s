@@ -215,7 +215,7 @@ function instancesByFilter( filter )
 
   _.assert( arguments.length === 1, 'Expects single argument' );
 
-  var result = _.entityFilter( self.Instances, filter );
+  var result = _.filter_( null, self.Instances, filter );
 
   return result;
 }
@@ -348,10 +348,10 @@ var Statics =
   instanceByName,
   instancesByFilter,
 
-  Instances : _.define.contained({ ini : [], readOnly : 1, shallowCloning : 1 }),
-  InstancesMap : _.define.contained({ ini : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
-  UsingUniqueNames : _.define.contained({ ini : 0, readOnly : 1 }),
-  InstancesCounter : _.define.contained({ ini : [ 0 ], readOnly : 1 }),
+  Instances : _.define.contained({ val : [], readOnly : 1, shallowCloning : 1 }),
+  InstancesMap : _.define.contained({ val : Object.create( null ), readOnly : 1, shallowCloning : 1 }),
+  UsingUniqueNames : _.define.contained({ val : 0, readOnly : 1 }),
+  InstancesCounter : _.define.contained({ val : [ 0 ], readOnly : 1 }),
 
 }
 
