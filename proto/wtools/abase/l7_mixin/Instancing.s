@@ -48,8 +48,7 @@ function onMixinApply( mixinDescriptor, dstClass )
     methods : Supplement,
     names :
     {
-      // firstInstance : { readOnlyProduct : 0 },
-      firstInstance : { set : 0, put : 0, take : 0, get : 1 },
+      firstInstance : { set : 0, put : 0, grab : 0, get : 1 },
     },
     preservingValue : 0,
     prime : 0,
@@ -61,8 +60,7 @@ function onMixinApply( mixinDescriptor, dstClass )
     methods : Supplement,
     names :
     {
-      // instanceIndex : { readOnly : 1, readOnlyProduct : 0 },
-      instanceIndex : { set : 0, put : 0, take : 0, get : 1 },
+      instanceIndex : { set : 0, put : 0, grab : 0, get : 1 },
     },
     preservingValue : 0,
     combining : 'supplement',
@@ -254,7 +252,7 @@ function _instanceIndexGet()
 
 //
 
-function _nameTake()
+function _nameGrab()
 {
   var self = this;
   return self[ nameSymbol ];
@@ -361,7 +359,7 @@ var Supplement =
   _firstInstanceGet,
   _instanceIndexGet,
 
-  _nameTake,
+  _nameGrab,
   _nameGet,
   _nameSet,
   _namePut,
