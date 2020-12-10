@@ -350,6 +350,7 @@ var Statics =
   InstancesMap : _.define.contained({ val : Object.create( null ), writable : 0, shallowCloning : 1 }),
   UsingUniqueNames : _.define.contained({ val : 0, writable : 0 }),
   InstancesCounter : _.define.contained({ val : [ 0 ], writable : 0 }),
+  /* xxx : use another _.define */
 
 }
 
