@@ -1,6 +1,5 @@
 
 let _ = require( 'wTools' )
-_.include( 'wCopyable' );
 _.include( 'wInstancing' );
 
 // --
