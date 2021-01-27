@@ -1,24 +1,64 @@
 
-if( typeof module !== 'undefined' )
-require( './BaseClass.s' );
+let _ = require( 'wTools' )
+_.include( 'wInstancing' );
+
+// --
+// class declaration
+// --
+
+let Parent = null;
+let Self = BaseClass;
+function BaseClass()
+{
+  return _.workpiece.construct( Self, this, arguments );
+}
+
+//
+
+/* optional method to initialize instance with options */
+
+function init( o )
+{
+  var self = this;
+  _.workpiece.initFields( self );/* extends object by fields from relationships */
+  Object.preventExtensions( self ); /* disables object extending */
+  if( o )
+  _.mapExtend( self, o );
+}
+
+//
+
+var Composes =
+{
+  name : '',
+};
+
+var Proto =
+{
+  init,
+  Composes,
+};
+
+/* make class */
+
+_.classDeclare
+({
+  cls : Self,
+  parent : Parent,
+  extend : Proto,
+});
+
+/* mixin instances tracking functionality */
+
+wInstancing.mixin( Self );
+
 
 var base1 = new BaseClass({ name : 'base1' });
 var base2 = new BaseClass({ name : 'base2' });
 var base3 = new BaseClass({ name : 'base3' });
 
-var base2Maybe = BaseClass.instanceByName( 'base2' );
-console.log( 'base2Maybe === base2 :', base2Maybe === base2 );
-// base2Maybe === base2 : true
+let filtered = BaseClass.instancesByFilter( ( e ) => e.name === 'base3' ? e : undefined );
+console.log( filtered );
 
-for( let i = 0 ; i < BaseClass.Instances.length ; i++ )
-console.log( 'instance', i, BaseClass.Instances[ i ].name );
-// instance 0 base1
-// instance 1 base2
-// instance 2 base3
+/* log : [ BaseClass { [Symbol(name)]: 'base3' } ] */
 
-for( var name in BaseClass.InstancesMap )
-for( var i = 0 ; i < BaseClass.InstancesMap[ name ].length ; i++ )
-console.log( ( i + 1 ) + 'st instance with name', name, ':', BaseClass.InstancesMap[ name ][ i ].name );
-// 1st instance with name base1 : base1
-// 1st instance with name base2 : base2
-// 1st instance with name base3 : base3
