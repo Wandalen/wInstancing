@@ -19,9 +19,9 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _global = _global_;
-let _ = _global_.wTools;
-var _ObjectHasOwnProperty = Object.hasOwnProperty;
+const _global = _global_;
+const _ = _global_.wTools;
+const _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 //
 
@@ -373,7 +373,7 @@ var Supplement =
 
 }
 
-let Self =
+const Self =
 {
 
   onMixinApply,
