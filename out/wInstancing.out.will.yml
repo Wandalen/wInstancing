@@ -1524,6 +1524,4 @@ module:
       ../.im.will.yml:
         hash: bd78c076c6e6e25d94492f08f29be33b
         size: 5057
-      wInstancing.out.will.yml:
-        hash: 196285a6055e7cbfbf783abcff1ca7fe
-        size: 39232
+      wInstancing.out.will.yml: *ref_0
