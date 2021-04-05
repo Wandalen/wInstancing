@@ -78,8 +78,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - /pro/module/wInstancing/proto/wtools/abase/l7_mixin/Instancing.s
-    - /pro/module/wInstancing/proto/node_modules/winstancing
+    - proto/wtools/abase/l7_mixin/Instancing.s
+    - proto/node_modules/winstancing
 reflector:
   reflect.proto:
     inherit: predefined.*

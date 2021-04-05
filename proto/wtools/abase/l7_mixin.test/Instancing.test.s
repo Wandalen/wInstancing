@@ -22,7 +22,7 @@ const _ = _global_.wTools;
 
 function basic( test )
 {
-  var context = this;
+  let context = this;
 
   /* */
 
@@ -91,7 +91,7 @@ function basic( test )
 
 function severalClasses( test )
 {
-  var context = this;
+  let context = this;
 
   /* */
 
