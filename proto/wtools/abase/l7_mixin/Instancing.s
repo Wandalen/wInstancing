@@ -34,11 +34,11 @@ function onMixinApply( mixinDescriptor, dstClass )
   _.assert( arguments.length === 2, 'Expects exactly two arguments' );
   _.assert( _.routineIs( dstClass ) );
   _.assert( !dstPrototype.Instances, 'class already has mixin', Self.name );
-  _.assert( _.mapKeys( Supplement ).length === 10 );
+  _.assert( _.props.keys( Supplement ).length === 10 );
 
   _.mixinApply( this, dstPrototype );
 
-  _.assert( _.mapKeys( Supplement ).length === 10 );
+  _.assert( _.props.keys( Supplement ).length === 10 );
 
   /* */
 
@@ -89,7 +89,7 @@ function onMixinApply( mixinDescriptor, dstClass )
   _.assert( dstPrototype.InstancesMap === dstPrototype.constructor.InstancesMap );
   _.assert( _.arrayIs( dstPrototype.Instances ) );
   _.assert( dstPrototype.Instances === dstPrototype.constructor.Instances );
-  _.assert( _.mapKeys( Supplement ).length === 10 );
+  _.assert( _.props.keys( Supplement ).length === 10 );
 
 }
 

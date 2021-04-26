@@ -81,7 +81,7 @@ function basic( test )
   test.identical( Obj1.InstancesMap[ 'base2' ].length, 1 );
   test.identical( Obj1.InstancesMap[ 'base3' ][ 0 ].name, 'base3' );
   test.identical( Obj1.InstancesMap[ 'base3' ].length, 1 );
-  test.identical( _.lengthOf( Obj1.InstancesMap ), 3 );
+  test.identical( _.entity.lengthOf( Obj1.InstancesMap ), 3 );
 
   /* */
 
