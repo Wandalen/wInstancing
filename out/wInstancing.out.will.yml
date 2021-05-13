@@ -2,12 +2,9 @@ format: outwillfile-2.0
 root:
   - wInstancing.out
 consistency:
-  ../.ex.will.yml: &ref_0
-    hash: a239ffb59903a735e71d6fd2114b6ca9
-    size: 2027
-  ../.im.will.yml: &ref_1
-    hash: aafbf9344ab2bdb943f6e52fafc3a467
-    size: 5009
+  ../will.yml: &ref_0
+    hash: b255624a8c817ae223d6127b6da34126
+    size: 6812
 module:
   wInstancing.out:
     about:
@@ -21,21 +18,21 @@ module:
         required.
       enabled: 1
       version: 0.5.0
-      interpreters: &ref_2
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords: &ref_3
+      license: MIT
+      npm.name: winstancing
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: &ref_1
         - wTools
         - wInstancing
         - instances
-      license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors: &ref_2
         - Kostiantyn Wandalen <wanalen@01.school>
         - Volodymyr M. <volodymyr.migdal@gmail.com>
-      npm.name: winstancing
-      npm.scripts: &ref_5
+      interpreters: &ref_3
+        - njs >= 10.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      npm.scripts: &ref_4
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -50,15 +47,11 @@ module:
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.in:
         criterion:
           predefined: 1
@@ -185,7 +178,7 @@ module:
         path: 'npm:///wProto'
         autoExporting: 0
         enabled: 0
-      wCloner:
+      wcloner:
         path: 'npm:///wcloner'
         autoExporting: 0
         enabled: 0
@@ -796,8 +789,7 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      ../will.yml: *ref_0
   ../:
     about:
       name: wInstancing
@@ -810,26 +802,22 @@ module:
         required.
       enabled: 1
       version: 0.5.0
-      interpreters: *ref_2
-      keywords: *ref_3
       license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
       npm.name: winstancing
-      npm.scripts: *ref_5
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: *ref_1
+      contributors: *ref_2
+      interpreters: *ref_3
+      npm.scripts: *ref_4
     path:
       module.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
@@ -939,7 +927,7 @@ module:
         path: 'npm:///wProto'
         autoExporting: 0
         enabled: 0
-      wCloner:
+      wcloner:
         path: 'npm:///wcloner'
         autoExporting: 0
         enabled: 0
@@ -1486,9 +1474,6 @@ module:
           - 'build::release'
           - 'build::npm'
     consistency:
-      ../.ex.will.yml:
-        hash: a239ffb59903a735e71d6fd2114b6ca9
-        size: 2027
-      ../.im.will.yml:
-        hash: aafbf9344ab2bdb943f6e52fafc3a467
-        size: 5009
+      ../will.yml:
+        hash: b255624a8c817ae223d6127b6da34126
+        size: 6812
