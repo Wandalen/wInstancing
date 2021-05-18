@@ -1,6 +1,6 @@
 {
   "name" : "winstancing",
-  "version" : "0.4.262",
+  "version" : "0.4.263",
   "engine" : "node >= 10.0.0",
   "description" : "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
   "license" : "MIT",
@@ -22,7 +22,7 @@
   {
     "url" : "https://github.com/Wandalen/wInstancing/issues"
   },
-  "dependencies" : { "wTools" : "delta", "wProto" : "delta", "wcloner" : "delta" },
-  "devDependencies" : { "eslint" : "7.1.0", "wTesting" : "delta" },
+  "dependencies" : { "wTools" : "gamma", "wProto" : "gamma", "wcloner" : "gamma" },
+  "devDependencies" : { "eslint" : "7.1.0", "wTesting" : "gamma" },
   "keywords" : [ "wTools", "wInstancing", "instances" ]
 }
