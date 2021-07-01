@@ -1,28 +1,52 @@
 {
-  "name" : "winstancing",
-  "version" : "0.4.266",
-  "engine" : "node >= 10.0.0",
-  "description" : "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
-  "license" : "MIT",
-  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
-  "contributors" :
-  [
-    { "name" : "Kostiantyn Wandalen", "email" : "wanalen@01.school" },
-    { "name" : "Volodymyr M.", "email" : "volodymyr.migdal@gmail.com" }
+  "name": "winstancing",
+  "version": "0.4.267",
+  "engine": "node >= 10.0.0",
+  "description": "Mixin adds instances accounting functionality to a class. Instancing makes possible to iterate instances of the specific class, optionally create names map or class name map in case of a complicated hierarchical structure. Use Instancing to don't repeat yourself. Refactoring required.",
+  "license": "MIT",
+  "author": "Kostiantyn Wandalen <wanalen@01.school>",
+  "contributors": [
+    {
+      "name": "Kostiantyn Wandalen",
+      "email": "wanalen@01.school"
+    },
+    {
+      "name": "Volodymyr M.",
+      "email": "volodymyr.migdal@gmail.com"
+    }
   ],
-  "main" : "proto/node_modules/winstancing",
-  "files" : [ "proto/wtools/abase/l7_mixin/Instancing.s", "proto/wtools/abase/layer3", "out", "proto/node_modules", "proto/node_modules/Tools", "proto/node_modules/winstancing" ],
-  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/Wandalen/wInstancing.git"
+  "main": "proto/node_modules/winstancing",
+  "files": [
+    "proto/wtools/abase/l7_mixin/Instancing.s",
+    "proto/wtools/abase/layer3",
+    "out",
+    "proto/node_modules",
+    "proto/node_modules/Tools",
+    "proto/node_modules/winstancing"
+  ],
+  "scripts": {
+    "test": "wtest .run 'proto/**' rapidity:-3",
+    "docgen": "wdocgen proto"
   },
-  "bugs" :
-  {
-    "url" : "https://github.com/Wandalen/wInstancing/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wandalen/wInstancing.git"
   },
-  "dependencies" : { "wTools" : "gamma", "wProto" : "gamma", "wcloner" : "gamma" },
-  "devDependencies" : { "eslint" : "7.1.0", "wTesting" : "gamma" },
-  "keywords" : [ "wTools", "wInstancing", "instances" ]
+  "bugs": {
+    "url": "https://github.com/Wandalen/wInstancing/issues"
+  },
+  "dependencies": {
+    "wTools": "gamma",
+    "wProto": "gamma",
+    "wcloner": "gamma"
+  },
+  "devDependencies": {
+    "wTesting": "gamma",
+    "eslint": "7.1.0"
+  },
+  "keywords": [
+    "wTools",
+    "wInstancing",
+    "instances"
+  ]
 }
