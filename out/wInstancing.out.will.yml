@@ -3,8 +3,8 @@ root:
   - wInstancing.out
 consistency:
   ../will.yml: &ref_0
-    hash: 114641f1a71d6bba06790cafd5b1f464
-    size: 6671
+    hash: 75da3f0d715d84e385a7fb81e8c4a71d
+    size: 6679
 module:
   wInstancing.out:
     about:
@@ -1457,5 +1457,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: 114641f1a71d6bba06790cafd5b1f464
-        size: 6671
+        hash: 75da3f0d715d84e385a7fb81e8c4a71d
+        size: 6679
